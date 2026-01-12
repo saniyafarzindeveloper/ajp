@@ -35,7 +35,7 @@ const menuItems = [
 //   },
   {
     name: "About Us",
-    href: "/",
+    href: "/about",
   },
 ];
 
@@ -53,7 +53,7 @@ export default function Navbar() {
         <div className="inline-flex items-center space-x-3">
           <Link href="/" className="flex items-center gap-3">
             <Image src="/images/helicopter.png" alt="Logo" width={70} height={70} />
-            <p className="font-bold text-2xl text-[#f58220]">AAM JANTA PARTY</p>
+            <p className="font-bold text-2xl text-[#f58220]">AAM JANTA PARTY INDIA</p>
           </Link>
         </div>
 
@@ -105,13 +105,13 @@ export default function Navbar() {
 
         {/* DESKTOP BUTTON */}
         <div className="hidden lg:block space-x-1">
-          <Link href="/">
+          <Link href="/join-us">
             <Button className="bg-[#f58220] hover:bg-[#ef7e1a] text-white cursor-pointer">
               Join Us
             </Button>
           </Link>
 
-           <Link href="/">
+           <Link href="/donate">
             <Button className="bg-[#f16c20] hover:bg-[#d86b0c] text-white cursor-pointer">
               Donate Now
             </Button>
@@ -129,10 +129,12 @@ export default function Navbar() {
               </div>
             </SheetTrigger>
 
+
+            <VisuallyHidden>
             <SheetContent side="right" className="w-72 bg-white p-4">
-              <VisuallyHidden>
-                <h2>Mobile Navigation Menu</h2>
-              </VisuallyHidden>
+             
+               <p className="font-bold text-xl text-[#f58220]">AAM JANTA PARTY INDIA</p>
+              
 
               <div className="flex flex-col gap-4 mt-2">
                 <SheetClose asChild>
@@ -199,6 +201,7 @@ export default function Navbar() {
                 </SheetClose>
               </div>
             </SheetContent>
+            </VisuallyHidden>
           </Sheet>
         </div>
       </div>
