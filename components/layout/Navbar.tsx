@@ -20,23 +20,24 @@ const menuItems = [
   {
     name: "Media Resources",
     subItems: [
-      { name: "Press Release", href: "/" },
+      { name: "Photo Gallery", href: "/" },
+       { name: "Video Gallery", href: "/" },
       { name: "Speech", href: "/" },
-     { name: "Rallies", href: "/" },
+    
     ],
   },
-//   {
-//     name: "Courses",
-//     subItems: [
-//       { name: "Logistics", href: "/logistics" },
-//       { name: "SCM", href: "/scm" },
-//       { name: "English Speaking", href: "/english-speaking" },
-//     ],
-//   },
+  {
+    name: "Development Initiatives",
+    href: '/development-initiatives'
+  },
   {
     name: "About Us",
     href: "/about",
   },
+  {
+    name: "Contact Us",
+    href: '/contact-us'
+  }
 ];
 
 export default function Navbar() {

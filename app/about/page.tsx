@@ -1,12 +1,13 @@
+import CTA from "@/components/layout/CTA";
 import Image from "next/image";
-import Link from "next/link";
+
 
 export default function AboutPage() {
   return (
     <main className="bg-white overflow-hidden">
       {/* HERO */}
       <section className="relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-500 via-yellow-400 to-green-500 opacity-90" />
+        <div className="absolute inset-0 bg-linear-to-br from-orange-500 via-yellow-400 to-green-500 opacity-90" />
         <div className="relative max-w-7xl mx-auto px-6 py-28 text-white">
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight max-w-4xl">
             A Movement Led by the People,
@@ -21,7 +22,7 @@ export default function AboutPage() {
       </section>
 
       {/* FLAG STRIP */}
-      <div className="h-2 bg-gradient-to-r from-orange-500 via-yellow-400 to-green-500" />
+      <div className="h-2 bg-linear-to-r from-orange-500 via-yellow-400 to-green-500" />
 
       {/* WHO WE ARE */}
       <section className="relative max-w-7xl mx-auto px-6 py-24">
@@ -59,7 +60,7 @@ export default function AboutPage() {
 
       {/* VISION / MISSION */}
       <section className="relative bg-gray-900 text-white">
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900" />
+        <div className="absolute inset-0 bg-linear-to-r from-gray-900 via-gray-800 to-gray-900" />
         <div className="relative max-w-7xl mx-auto px-6 py-28">
           <div className="grid md:grid-cols-2 gap-12">
             <div className="relative p-10 rounded-2xl bg-white/5 backdrop-blur">
@@ -133,33 +134,7 @@ export default function AboutPage() {
       </section>
 
       {/* CALL TO ACTION */}
-      <section className="relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-yellow-400 to-green-500" />
-        <div className="relative max-w-7xl mx-auto px-6 py-24 text-center text-white">
-          <h2 className="text-4xl font-extrabold">
-            Be Part of India’s Change
-          </h2>
-          <p className="mt-6 max-w-2xl mx-auto text-white/90 text-lg">
-            This movement belongs to every citizen who believes India deserves
-            better governance.
-          </p>
-
-          <div className="mt-10 flex justify-center gap-6">
-            <Link
-              href="/join-us"
-              className="px-8 py-4 rounded-full bg-white text-gray-900 font-semibold hover:bg-gray-100 transition"
-            >
-              Join the Movement
-            </Link>
-            <Link
-              href="/donate"
-              className="px-8 py-4 rounded-full border border-white font-semibold hover:bg-white hover:text-gray-900 transition"
-            >
-              Support the Cause
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CTA />
     </main>
   );
 }
