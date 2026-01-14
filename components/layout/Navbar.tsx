@@ -194,11 +194,23 @@ export default function Navbar() {
                 </nav>
 
                 <SheetClose asChild>
-                  <Link href="/contact-us">
+                  <Link href="/join-us">
                     <Button className="bg-[#f58220] hover:bg-[#f58220] w-full text-white mt-4">
-                      Contact Us
+                      Join Us
                     </Button>
                   </Link>
+
+                  
+                </SheetClose>
+
+                <SheetClose asChild>
+                  <Link href="donate">
+                    <Button className="bg-[#f58220] hover:bg-[#f58220] w-full text-white mt-4">
+                      Donate
+                    </Button>
+                  </Link>
+
+                  
                 </SheetClose>
               </div>
             </SheetContent>

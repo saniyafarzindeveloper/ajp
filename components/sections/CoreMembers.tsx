@@ -1,155 +1,90 @@
-// import Image from "next/image";
-
-// export default function CoreMembers() {
-//   return (
-//     <section className="bg-white">
-//       {/* Top Banner */}
-//       <div className="h-128 bg-gray-100">
-//         <div className="container px-6 py-10 mx-auto">
-//           <h1 className="text-3xl font-semibold text-center text-[#f16c20] capitalize lg:text-4xl">
-//             Meet Our Core Members
-//           </h1>
-
-//           <div className="flex justify-center mx-auto mt-6">
-//             <span className="inline-block w-40 h-1 bg-[#1F42B0] rounded-full"></span>
-//             <span className="inline-block w-3 h-1 mx-1 bg-[#1F42B0] rounded-full"></span>
-//             <span className="inline-block w-1 h-1 bg-[#1F42B0] rounded-full"></span>
-//           </div>
-
-//           <p className="max-w-2xl mx-auto mt-6 text-center text-gray-500">
-//             Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
-//             incidunt ex placeat modi magni quia error alias, adipisci rem
-//             similique, at omnis eligendi optio eos harum.
-//           </p>
-//         </div>
-//       </div>
-
-//       {/* Counsellor Cards */}
-//       <div className="container px-6 py-10 mx-auto -mt-72 sm:-mt-80 md:-mt-96">
-//         <div className="flex flex-col items-center justify-center gap-8 mt-8 xl:mt-16 md:flex-row">
-//            <div className="flex flex-col items-center p-4 border sm:p-6 rounded-xl bg-white shadow-sm">
-//             <Image
-//               src="/images/hari.png"
-//               alt="Hari Patel"
-//               width={400}
-//               height={400}
-//               className="object-cover w-full rounded-xl aspect-square"
-//             />
-//             <h1 className="mt-4 text-2xl font-semibold text-[#1F42B0] capitalize">
-//               HariBhai Patel
-//             </h1>
-//             <p className="mt-2 text-gray-500 capitalize">Rashtriya Adhyaksh</p>
-//           </div>
-//           {/* Counsellor 1 */}
-//           <div className="flex flex-col items-center p-4 border sm:p-6 rounded-xl bg-white shadow-sm">
-//             <Image
-//               src="/images/rahil.png"
-//               alt="Rahil Hussain"
-//               width={400}
-//               height={400}
-//               className="object-cover w-full rounded-xl aspect-square"
-//             />
-//             <h1 className="mt-4 text-2xl font-semibold text-[#1F42B0] capitalize">
-//               Rahil Hussain
-//             </h1>
-//             <p className="mt-2 text-gray-500 capitalize">Rashtriya Upadhyaksh</p>
-//           </div>
-
-         
-         
-
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
-
 import Image from "next/image";
+
+const leaders = [
+  {
+    name: "HariBhai Patel",
+    role: "Rashtriya Adhyaksh",
+    image: "/images/hari.png",
+    bio: `HariBhai Patel is the National President of Aam Janta Party India.
+    With decades of grassroots experience, he has worked relentlessly to
+    empower the common citizen, promote transparent governance, and build
+    a people-first political movement rooted in integrity.`,
+  },
+  {
+    name: "Rahil Hussain",
+    role: "Rashtriya Upadhyaksh",
+    image: "/images/rahil.png",
+    bio: `Rahil Hussain serves as the National Vice President of the party.
+    Known for his organisational strength and youth outreach, he focuses on
+    policy-driven governance, party expansion, and public engagement across India.`,
+  },
+];
 
 export default function CoreMembers() {
   return (
-    <section className="bg-gray-50">
+    <section className="bg-[#f9fafb]">
       <div className="max-w-7xl mx-auto px-4 py-20">
-        {/* Section Header */}
+        {/* Header */}
         <div className="max-w-3xl mx-auto text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-1 text-xs font-medium text-gray-700">
-            Leadership
+          <span className="inline-flex items-center rounded-full border border-gray-300 bg-gray-50 px-4 py-1 text-xs font-medium text-gray-700">
+            Party Leadership
           </span>
 
           <h2 className="mt-6 text-3xl md:text-4xl font-semibold text-gray-900">
-            Meet Our Core Members
+            National Core Leadership
           </h2>
 
           <div className="flex justify-center mt-4">
-            <span className="inline-block w-20 h-1 rounded-full bg-gradient-to-r from-orange-500 via-yellow-400 to-green-500" />
+            <span className="h-1 w-24 rounded-full bg-linear-to-r from-orange-500 via-yellow-400 to-green-500" />
           </div>
 
           <p className="mt-6 text-lg text-gray-600">
-            Our leadership brings experience, integrity, and a deep commitment
-            to serving the people and strengthening the nation.
+            Experienced leadership guiding the party with vision,
+            responsibility, and commitment to national progress.
           </p>
         </div>
 
-        {/* Members Grid */}
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Member Card */}
-          <div className="group bg-white rounded-2xl border shadow-sm hover:shadow-md transition">
-            <div className="p-4">
-              <div className="overflow-hidden rounded-xl">
-                <Image
-                  src="/images/hari.png"
-                  alt="HariBhai Patel"
-                  width={400}
-                  height={400}
-                  className="aspect-square w-full object-cover transition group-hover:scale-105"
-                />
+        {/* Leaders */}
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-12">
+          {leaders.map((leader) => (
+            <div
+              key={leader.name}
+              className="relative bg-gray-50 rounded-2xl p-6 md:p-8 border"
+            >
+              {/* Image */}
+              <div className="relative mx-auto w-56 h-56 rounded-xl overflow-hidden">
+                <div className="absolute inset-0 bg-linear-to-br from-orange-500 via-yellow-400 to-green-500" />
+                <div className="absolute inset-1 rounded-xl overflow-hidden bg-white">
+                  <Image
+                    src={leader.image}
+                    alt={leader.name}
+                    width={400}
+                    height={400}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
               </div>
 
-              <div className="mt-5 text-center">
-                <h3 className="text-xl font-semibold text-[#1F42B0]">
-                  HariBhai Patel
+              {/* Content */}
+              <div className="mt-8 text-center">
+                <h3 className="text-2xl font-semibold text-[#1F42B0]">
+                  {leader.name}
                 </h3>
-                <p className="mt-1 text-sm text-gray-500">
-                  Rashtriya Adhyaksh
+
+                <p className="mt-1 text-sm uppercase tracking-wide text-orange-600 font-medium">
+                  {leader.role}
+                </p>
+
+                <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-linear-to-r from-orange-500 via-yellow-400 to-green-500" />
+
+                <p className="mt-6 text-gray-600 leading-relaxed text-base">
+                  {leader.bio}
                 </p>
               </div>
             </div>
-          </div>
-
-          {/* Member Card */}
-          <div className="group bg-white rounded-2xl border shadow-sm hover:shadow-md transition">
-            <div className="p-4">
-              <div className="overflow-hidden rounded-xl">
-                <Image
-                  src="/images/rahil.png"
-                  alt="Rahil Hussain"
-                  width={400}
-                  height={400}
-                  className="aspect-square w-full object-cover transition group-hover:scale-105"
-                />
-              </div>
-
-              <div className="mt-5 text-center">
-                <h3 className="text-xl font-semibold text-[#1F42B0]">
-                  Rahil Hussain
-                </h3>
-                <p className="mt-1 text-sm text-gray-500">
-                  Rashtriya Upadhyaksh
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Placeholder / Future Member */}
-          <div className="flex items-center justify-center rounded-2xl border border-dashed bg-white p-8 text-center">
-            <p className="text-sm text-gray-400">
-              More leadership profiles coming soon
-            </p>
-          </div>
+          ))}
         </div>
       </div>
     </section>
   );
 }
-
