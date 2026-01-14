@@ -12,13 +12,13 @@ export default function Ideology() {
           </span>
 
           <h2 className="mt-6 text-3xl md:text-4xl font-semibold text-gray-900">
-            Values That Guide Our Decisions
+            Principles That Shape Our Governance
           </h2>
 
           <p className="mt-4 text-lg text-gray-600">
-            Our ideology is rooted in the belief that governance must be honest,
-            inclusive, and focused on long-term progress rather than short-term
-            politics.
+            Our ideology is grounded in the belief that governance must be
+            ethical, inclusive, and accountable — focused on lasting national
+            progress rather than temporary political gains.
           </p>
         </div>
 
@@ -27,48 +27,51 @@ export default function Ideology() {
           {/* Card 1 */}
           <div className="rounded-2xl bg-white p-6 shadow-sm hover:shadow-md transition">
             <div className="h-10 w-10 rounded-xl bg-orange-100 flex items-center justify-center">
-              <span className="text-orange-600 text-lg font-semibold">1</span>
+              <span className="text-orange-600 text-lg font-semibold">01</span>
             </div>
 
             <h3 className="mt-5 text-lg font-medium text-gray-900">
-              People First
+              Citizens Before Politics
             </h3>
 
             <p className="mt-3 text-sm text-gray-600">
-              Every policy and decision must improve the daily lives of citizens,
-              especially those who are most often unheard.
+              Every decision we take is guided by its impact on ordinary
+              citizens, with special focus on voices that are often ignored or
+              left behind.
             </p>
           </div>
 
           {/* Card 2 */}
           <div className="rounded-2xl bg-white p-6 shadow-sm hover:shadow-md transition">
             <div className="h-10 w-10 rounded-xl bg-yellow-100 flex items-center justify-center">
-              <span className="text-yellow-600 text-lg font-semibold">2</span>
+              <span className="text-yellow-600 text-lg font-semibold">02</span>
             </div>
 
             <h3 className="mt-5 text-lg font-medium text-gray-900">
-              Inclusive Growth
+              Equitable Development
             </h3>
 
             <p className="mt-3 text-sm text-gray-600">
-              Development must reach every region, community, and individual,
-              ensuring equal opportunity across India.
+              Growth must be fair and balanced, reaching every region,
+              community, and individual so that opportunity is not limited by
+              geography or background.
             </p>
           </div>
 
           {/* Card 3 */}
           <div className="rounded-2xl bg-white p-6 shadow-sm hover:shadow-md transition">
             <div className="h-10 w-10 rounded-xl bg-green-100 flex items-center justify-center">
-              <span className="text-green-600 text-lg font-semibold">3</span>
+              <span className="text-green-600 text-lg font-semibold">03</span>
             </div>
 
             <h3 className="mt-5 text-lg font-medium text-gray-900">
-              Honest Governance
+              Integrity in Public Life
             </h3>
 
             <p className="mt-3 text-sm text-gray-600">
-              Transparency, accountability, and integrity are non-negotiable in
-              public life and decision-making.
+              Transparency, accountability, and ethical conduct are
+              non-negotiable foundations of public service and
+              decision-making.
             </p>
           </div>
         </div>
@@ -76,9 +79,9 @@ export default function Ideology() {
         {/* Closing Statement */}
         <div className="mt-16 max-w-3xl">
           <p className="text-base text-gray-700">
-            These principles shape our policies, leadership, and actions. They
-            define not just what we promise, but how we govern and serve the
-            people of India.
+            These principles guide our leadership, policies, and actions. They
+            define not only what we commit to, but how we govern and remain
+            accountable to the people of India.
           </p>
         </div>
       </div>
