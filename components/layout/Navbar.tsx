@@ -54,7 +54,7 @@ export default function Navbar() {
         <div className="inline-flex items-center space-x-3">
           <Link href="/" className="flex items-center gap-3">
             <Image src="/images/helicopter.png" alt="Logo" width={70} height={70} />
-            <p className="font-bold text-2xl text-[#f58220]">AAM JANTA PARTY INDIA</p>
+            <p className="font-bold text-2xl text-[#f58220]">AAM JANTA PARTY (INDIA)</p>
           </Link>
         </div>
 
@@ -134,11 +134,11 @@ export default function Navbar() {
             <VisuallyHidden>
             <SheetContent side="right" className="w-72 bg-white p-4">
              
-               <p className="font-bold text-xl text-[#f58220]">AAM JANTA PARTY INDIA</p>
+               <p className="font-bold text-xl text-[#f58220]">AAM JANTA PARTY (INDIA)</p>
               
 
               <div className="flex flex-col gap-4 mt-2">
-                <SheetClose asChild>
+                {/* <SheetClose asChild>
                   <Link href="/" className="flex items-center gap-3">
                     <Image
                       src="/images/helicopter.png"
@@ -147,7 +147,7 @@ export default function Navbar() {
                       height={60}
                     />
                   </Link>
-                </SheetClose>
+                </SheetClose> */}
 
                 <nav className="flex flex-col gap-3 mt-4">
                   {menuItems.map((item, index) => (

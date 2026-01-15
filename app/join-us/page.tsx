@@ -65,7 +65,7 @@ export default function JoinPage() {
             )}
           </div>
 
-          {/* Personal Details */}
+        
           {/* Personal Details */}
           <div className="mt-12">
             <h2 className="text-xl font-semibold text-gray-900">

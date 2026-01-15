@@ -43,12 +43,12 @@ export default function Hero() {
                 Join the Movement
               </Link>
 
-              <a
-                href="/manifesto"
+              <Link
+                href="#vision"
                 className="inline-flex items-center justify-center rounded-xl border border-gray-300 px-8 py-4 text-sm font-medium text-gray-900 hover:border-green-500 transition"
               >
                 Read Our Vision
-              </a>
+              </Link>
             </div>
           </div>
 
