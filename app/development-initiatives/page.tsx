@@ -7,7 +7,7 @@ const initiatives = [
     desc: "Ensuring equal opportunities, economic independence, and leadership roles for women across all sectors of society.",
     color: "orange",
     image:
-      "https://images.pexels.com/photos/35601471/pexels-photo-35601471.jpeg",
+      "https://images.pexels.com/photos/35605404/pexels-photo-35605404.jpeg",
   },
   {
     title: "Accessible Healthcare",
@@ -38,7 +38,7 @@ const initiatives = [
     title: "Jobs & Skill Development for Youth",
     desc: "Large-scale skill training, entrepreneurship support, and employment generation to unlock India’s demographic dividend.",
     color: "yellow",
-    image: "https://images.pexels.com/photos/7129713/pexels-photo-7129713.jpeg",
+    image: "https://images.pexels.com/photos/4963433/pexels-photo-4963433.jpeg",
   },
 ];
 

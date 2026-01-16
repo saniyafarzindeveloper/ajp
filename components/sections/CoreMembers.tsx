@@ -15,8 +15,7 @@ const leaders = [
     role: "Rashtriya Upadhyaksh",
     image: "/images/rahil.png",
     bio: `Rahil Hussain serves as the National Vice President of the party.
-    Known for his organisational strength and youth outreach, he focuses on
-    policy-driven governance, party expansion, and public engagement across India.`,
+    Known for his organisational strength and youth outreach, He is a revolutionary leader who believes in sovereignty and inclusiveness of the country.`,
   },
 ];
 

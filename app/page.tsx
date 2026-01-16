@@ -11,7 +11,7 @@ export default function Home() {
         badgeLabel="Our Vision"
         title="A Stronger, Fairer India for Every Citizen"
         description="Our vision is to build a nation where opportunity, dignity, and justice are accessible to all — driven by transparent leadership, people-centric policies, and sustainable development."
-        imageSrc="/images/poverty.jpg"
+        imageSrc="https://images.pexels.com/photos/4642378/pexels-photo-4642378.jpeg"
         points={[
           {
             number: "01",

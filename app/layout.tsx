@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import MaintenanceBanner from "@/components/layout/MaintenanceBanner";
 
 
 
@@ -18,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <MaintenanceBanner />
         <Navbar /> 
         {children} 
         <Footer /> 

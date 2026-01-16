@@ -36,7 +36,7 @@ export default function ContactPage() {
                 <div>
                   <p className="text-sm text-gray-500">Email</p>
                   <p className="text-lg text-gray-900">
-                    contact@aamjantaparty.org
+                    info@aamjantapartyindia.in
                   </p>
                 </div>
               </div>
