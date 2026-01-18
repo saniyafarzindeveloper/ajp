@@ -42,39 +42,44 @@ export default function ContactPage() {
   }
 
   async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setError("");
-    setSuccess("");
+  e.preventDefault();
+  setError("");
+  setSuccess("");
 
-    const validationError = validateForm();
-    if (validationError) {
-      setError(validationError);
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      const res = await fetch("/api/contact-us", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.error || "Something went wrong");
-      }
-
-      setSuccess("Message sent successfully. We’ll get back to you soon.");
-      setForm({ name: "", email: "", message: "" });
-    } catch (err: any) {
-      setError(err.message || "Failed to send message. Please try again.");
-    } finally {
-      setLoading(false);
-    }
+  const validationError = validateForm();
+  if (validationError) {
+    setError(validationError);
+    return;
   }
+
+  setLoading(true);
+
+  try {
+    const res = await fetch("/api/contact-us", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.error || "Something went wrong");
+    }
+
+    setSuccess("Message sent successfully. We’ll get back to you soon.");
+    setForm({ name: "", email: "", message: "" });
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      setError(err.message);
+    } else {
+      setError("Failed to send message. Please try again.");
+    }
+  } finally {
+    setLoading(false);
+  }
+}
+
 
   return (
     <main className="bg-white">

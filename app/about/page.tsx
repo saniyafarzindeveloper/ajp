@@ -46,7 +46,7 @@ export default function AboutPage() {
 
           <div className="relative">
             <div className="absolute -top-6 -left-6 h-full w-full bg-orange-500 rounded-2xl" />
-            <div className="relative h-[420px] rounded-2xl overflow-hidden shadow-xl">
+            <div className="relative h-105 rounded-2xl overflow-hidden shadow-xl">
               <Image
                 src="/images/hero.jpeg"
                 alt="People of India"
