@@ -14,16 +14,45 @@ export default function ContactPage() {
   const [error, setError] = useState("");
 
   function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
+  function validateForm() {
+    // Name: first + last name
+    const nameParts = form.name.trim().split(/\s+/);
+    if (nameParts.length < 2) {
+      return "Please enter your full name (first and last name).";
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email)) {
+      return "Please enter a valid email address.";
+    }
+
+    // Message: at least 10 words
+    const wordCount = form.message.trim().split(/\s+/).length;
+    if (wordCount < 10) {
+      return "Message should be at least 10 words long.";
+    }
+
+    return null;
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setLoading(true);
     setError("");
     setSuccess("");
+
+    const validationError = validateForm();
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
+
+    setLoading(true);
 
     try {
       const res = await fetch("/api/contact-us", {
@@ -41,7 +70,7 @@ export default function ContactPage() {
       setSuccess("Message sent successfully. We’ll get back to you soon.");
       setForm({ name: "", email: "", message: "" });
     } catch (err: any) {
-      setError(err.message || "Failed to send message");
+      setError(err.message || "Failed to send message. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -49,50 +78,42 @@ export default function ContactPage() {
 
   return (
     <main className="bg-white">
-      {/* HERO */}
-      <section className="relative">
-        <div className="absolute inset-0 bg-linear-to-r from-orange-500 via-yellow-400 to-green-500" />
-        <div className="relative max-w-7xl mx-auto px-6 py-24 text-white">
-          <h1 className="text-5xl md:text-6xl font-extrabold">Contact Us</h1>
-          <p className="mt-6 max-w-2xl text-lg text-white/90">
-            Reach out to us for support, collaboration, or to be part of the
-            movement shaping India’s future.
-          </p>
-        </div>
-      </section>
 
       {/* CONTACT SECTION */}
       <section className="max-w-7xl mx-auto px-6 py-24">
         <div className="grid lg:grid-cols-2 gap-16">
-          {/* LEFT */}
+          {/* LEFT */}{" "}
           <div>
-            <h2 className="text-3xl font-bold text-gray-900">Get in Touch</h2>
+            {" "}
+            <h2 className="text-3xl font-bold text-gray-900">
+              Get in Touch
+            </h2>{" "}
             <p className="mt-6 text-lg text-gray-600 max-w-xl">
+              {" "}
               Whether you’re a citizen, volunteer, media representative, or
-              supporter — we’d love to hear from you.
-            </p>
-
+              supporter — we’d love to hear from you.{" "}
+            </p>{" "}
             <div className="mt-10 space-y-6">
+              {" "}
               <div>
-                <p className="text-sm text-gray-500">Email</p>
+                {" "}
+                <p className="text-sm text-gray-500">Email</p>{" "}
                 <p className="text-lg text-gray-900">
-                  info@aamjantapartyindia.in
-                </p>
-              </div>
-
+                  {" "}
+                  📩 info@aamjantapartyindia.in{" "}
+                </p>{" "}
+              </div>{" "}
               <div>
-                <p className="text-sm text-gray-500">Office Address</p>
+                {" "}
+                <p className="text-sm text-gray-500">Office Address</p>{" "}
                 <p className="text-lg text-gray-900 leading-relaxed">
-                  Aam Janta Party India
-                  <br />
-                  Sector 44, Gurugram
-                  <br />
-                  Haryana – 122003
-                </p>
-              </div>
-            </div>
+                  {" "}
+                  📍 Aam Janta Party India <br /> Sector 44, Gurugram <br />{" "}
+                  Haryana – 122003{" "}
+                </p>{" "}
+              </div>{" "}
+            </div>{" "}
           </div>
-
           {/* RIGHT – FORM */}
           <div className="bg-gray-50 rounded-2xl p-8 shadow-sm">
             <h3 className="text-2xl font-semibold text-gray-900">
@@ -109,6 +130,7 @@ export default function ContactPage() {
                   value={form.name}
                   onChange={handleChange}
                   required
+                  placeholder="First & Last Name"
                   className="mt-2 w-full rounded-md border border-gray-300 px-4 py-3 focus:border-orange-500 focus:outline-none"
                 />
               </div>
@@ -123,6 +145,7 @@ export default function ContactPage() {
                   value={form.email}
                   onChange={handleChange}
                   required
+                  placeholder="you@example.com"
                   className="mt-2 w-full rounded-md border border-gray-300 px-4 py-3 focus:border-orange-500 focus:outline-none"
                 />
               </div>
@@ -137,6 +160,7 @@ export default function ContactPage() {
                   value={form.message}
                   onChange={handleChange}
                   required
+                  placeholder="Write at least 10 words..."
                   className="mt-2 w-full rounded-md border border-gray-300 px-4 py-3 focus:border-orange-500 focus:outline-none"
                 />
               </div>
@@ -152,7 +176,7 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full rounded-md bg-orange-500 px-6 py-3 text-white font-semibold hover:bg-orange-600 transition disabled:opacity-60"
+                className="w-full rounded-md bg-orange-500 px-6 py-3 text-white font-semibold hover:bg-orange-600 transition disabled:opacity-60 cursor-pointer"
               >
                 {loading ? "Sending..." : "Send Message"}
               </button>
@@ -163,4 +187,3 @@ export default function ContactPage() {
     </main>
   );
 }
-
