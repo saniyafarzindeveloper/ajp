@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
@@ -11,6 +10,7 @@ import {
   SheetTrigger,
   SheetClose,
 } from "@/components/ui/sheet";
+import AutoChangingPartyName from "./AutoChangingPartyName";
 
 const menuItems = [
   {
@@ -21,14 +21,13 @@ const menuItems = [
     name: "Media Resources",
     subItems: [
       { name: "Photo Gallery", href: "/" },
-       { name: "Video Gallery", href: "/" },
+      { name: "Video Gallery", href: "/" },
       { name: "Speech", href: "/" },
-    
     ],
   },
   {
     name: "Development Initiatives",
-    href: '/development-initiatives'
+    href: "/development-initiatives",
   },
   {
     name: "About Us",
@@ -36,8 +35,8 @@ const menuItems = [
   },
   {
     name: "Contact Us",
-    href: '/contact-us'
-  }
+    href: "/contact-us",
+  },
 ];
 
 export default function Navbar() {
@@ -50,13 +49,7 @@ export default function Navbar() {
   return (
     <div className="sticky top-0 z-50 w-full bg-white shadow-sm">
       <div className="mx-auto flex max-w-full items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
-        {/* LOGO */}
-        <div className="inline-flex items-center space-x-3">
-          <Link href="/" className="flex items-center gap-3">
-            <Image src="/images/helicopter.png" alt="Logo" width={70} height={70} />
-            <p className="font-bold text-2xl text-[#f58220]">AAM JANTA PARTY (INDIA)</p>
-          </Link>
-        </div>
+        <AutoChangingPartyName />
 
         {/* DESKTOP MENU */}
         <div className="hidden lg:flex items-start">
@@ -112,7 +105,7 @@ export default function Navbar() {
             </Button>
           </Link>
 
-           <Link href="/donate">
+          <Link href="/donate">
             <Button className="bg-[#f16c20] hover:bg-[#d86b0c] text-white cursor-pointer">
               Donate Now
             </Button>
@@ -130,90 +123,74 @@ export default function Navbar() {
               </div>
             </SheetTrigger>
 
-
             <VisuallyHidden>
-            <SheetContent side="right" className="w-72 bg-white p-4">
-             
-               <p className="font-bold text-xl text-[#f58220]">AAM JANTA PARTY (INDIA)</p>
-              
+              <SheetContent side="right" className="w-72 bg-white p-4">
+                {/* <p className="font-bold text-xl text-[#f58220]">
+                  AAM JANTA PARTY (INDIA)
+                </p> */}
+                <AutoChangingPartyName />
+                <div className="flex flex-col gap-4 mt-2">
+                  <nav className="flex flex-col gap-3 mt-4">
+                    {menuItems.map((item, index) => (
+                      <div key={item.name}>
+                        {item.subItems ? (
+                          <>
+                            <button
+                              onClick={() => toggleDropdown(index)}
+                              className="flex items-center justify-between w-full text-sm font-light text-gray-800"
+                            >
+                              {item.name}
+                              <ChevronDown className="h-4 w-4" />
+                            </button>
 
-              <div className="flex flex-col gap-4 mt-2">
-                {/* <SheetClose asChild>
-                  <Link href="/" className="flex items-center gap-3">
-                    <Image
-                      src="/images/helicopter.png"
-                      alt="Logo"
-                      width={60}
-                      height={60}
-                    />
-                  </Link>
-                </SheetClose> */}
+                            {openDropdown === index && (
+                              <ul className="ml-3 mt-2 space-y-2">
+                                {item.subItems.map((sub) => (
+                                  <li key={sub.name}>
+                                    <SheetClose asChild>
+                                      <Link
+                                        href={sub.href}
+                                        className="block px-2 py-1 text-sm hover:bg-gray-100"
+                                      >
+                                        {sub.name}
+                                      </Link>
+                                    </SheetClose>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </>
+                        ) : (
+                          <SheetClose asChild>
+                            <Link
+                              href={item.href}
+                              className="block px-2 py-1 text-sm hover:bg-gray-100"
+                            >
+                              {item.name}
+                            </Link>
+                          </SheetClose>
+                        )}
+                      </div>
+                    ))}
+                  </nav>
 
-                <nav className="flex flex-col gap-3 mt-4">
-                  {menuItems.map((item, index) => (
-                    <div key={item.name}>
-                      {item.subItems ? (
-                        <>
-                          <button
-                            onClick={() => toggleDropdown(index)}
-                            className="flex items-center justify-between w-full text-sm font-light text-gray-800"
-                          >
-                            {item.name}
-                            <ChevronDown className="h-4 w-4" />
-                          </button>
+                  <SheetClose asChild>
+                    <Link href="/join-us">
+                      <Button className="bg-[#f58220] hover:bg-[#f58220] w-full text-white mt-4">
+                        Join Us
+                      </Button>
+                    </Link>
+                  </SheetClose>
 
-                          {openDropdown === index && (
-                            <ul className="ml-3 mt-2 space-y-2">
-                              {item.subItems.map((sub) => (
-                                <li key={sub.name}>
-                                  <SheetClose asChild>
-                                    <Link
-                                      href={sub.href}
-                                      className="block px-2 py-1 text-sm hover:bg-gray-100"
-                                    >
-                                      {sub.name}
-                                    </Link>
-                                  </SheetClose>
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-                        </>
-                      ) : (
-                        <SheetClose asChild>
-                          <Link
-                            href={item.href}
-                            className="block px-2 py-1 text-sm hover:bg-gray-100"
-                          >
-                            {item.name}
-                          </Link>
-                        </SheetClose>
-                      )}
-                    </div>
-                  ))}
-                </nav>
-
-                <SheetClose asChild>
-                  <Link href="/join-us">
-                    <Button className="bg-[#f58220] hover:bg-[#f58220] w-full text-white mt-4">
-                      Join Us
-                    </Button>
-                  </Link>
-
-                  
-                </SheetClose>
-
-                <SheetClose asChild>
-                  <Link href="donate">
-                    <Button className="bg-[#f58220] hover:bg-[#f58220] w-full text-white mt-4">
-                      Donate
-                    </Button>
-                  </Link>
-
-                  
-                </SheetClose>
-              </div>
-            </SheetContent>
+                  <SheetClose asChild>
+                    <Link href="donate">
+                      <Button className="bg-[#f58220] hover:bg-[#f58220] w-full text-white mt-4">
+                        Donate
+                      </Button>
+                    </Link>
+                  </SheetClose>
+                </div>
+              </SheetContent>
             </VisuallyHidden>
           </Sheet>
         </div>
