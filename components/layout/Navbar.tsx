@@ -48,12 +48,11 @@ export default function Navbar() {
 
   return (
     <div className="sticky top-0 z-50 w-full bg-white shadow-sm">
-      <div className="mx-auto flex max-w-full items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-full items-center justify-between px-2 py-2 sm:px-6 lg:px-8">
         <AutoChangingPartyName />
-
         {/* DESKTOP MENU */}
         <div className="hidden lg:flex items-start">
-          <ul className="ml-12 inline-flex space-x-8">
+          <ul className="ml-7 inline-flex space-x-8">
             {menuItems.map((item, index) => (
               <li key={item.name} className="relative">
                 {item.subItems ? (
@@ -125,9 +124,6 @@ export default function Navbar() {
 
             <VisuallyHidden>
               <SheetContent side="right" className="w-72 bg-white p-4">
-                {/* <p className="font-bold text-xl text-[#f58220]">
-                  AAM JANTA PARTY (INDIA)
-                </p> */}
                 <AutoChangingPartyName />
                 <div className="flex flex-col gap-4 mt-2">
                   <nav className="flex flex-col gap-3 mt-4">

@@ -24,16 +24,11 @@ export default function AutoChangingPartyName() {
   return (
     <div className="inline-flex items-center space-x-3">
       <Link href="/" className="flex items-center gap-3">
-        <Image
-          src="/images/helicopter.png"
-          alt="Logo"
-          width={70}
-          height={70}
-        />
+        <Image src="/images/helicopter.png" alt="Logo" width={70} height={70} />
 
         <span
           key={partyNames[index].lang}
-          className="font-bold text-xl text-[#f58220] transition-all duration-500 ease-out"
+          className="font-bold text-xl text-[#f58220] logo-text-animate"
         >
           {partyNames[index].text}
         </span>
