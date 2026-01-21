@@ -17,6 +17,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
+
 
 const contactSchema = z.object({
   name: z
@@ -37,7 +39,6 @@ type ContactFormValues = z.infer<typeof contactSchema>;
 
 export default function ContactPage() {
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState("");
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
@@ -48,37 +49,42 @@ export default function ContactPage() {
     },
   });
 
-  async function onSubmit(values: ContactFormValues) {
-    setLoading(true);
-    setSuccess("");
+ async function onSubmit(values: ContactFormValues) {
+  setLoading(true);
 
-    try {
-      const res = await fetch("/api/contact-us", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
-      });
+  try {
+    const res = await fetch("/api/contact-us", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(values),
+    });
 
-      const data = await res.json();
+    const data = await res.json();
 
-      if (!res.ok) {
-        throw new Error(data.error || "Failed to send message");
-      }
-
-      setSuccess("Message sent successfully. We’ll get back to you soon.");
-      form.reset();
-    } catch (err) {
-      if (err instanceof Error) {
-        form.setError("root", { message: err.message });
-      } else {
-        form.setError("root", {
-          message: "Something went wrong. Please try again.",
-        });
-      }
-    } finally {
-      setLoading(false);
+    if (!res.ok) {
+      throw new Error(data.error || "Failed to send message");
     }
+
+    toast.success("Message sent successfully", {
+      description: "We’ll get back to you soon.",
+    });
+
+    form.reset();
+  } catch (err) {
+    if (err instanceof Error) {
+      toast.error("Failed to send message", {
+        description: err.message,
+      });
+    } else {
+      toast.error("Something went wrong", {
+        description: "Please try again later.",
+      });
+    }
+  } finally {
+    setLoading(false);
   }
+}
+
 
   return (
     <main className="bg-white">
@@ -116,6 +122,9 @@ export default function ContactPage() {
             <h3 className="text-2xl font-semibold text-gray-900">
               Send Us a Message
             </h3>
+            <p className="text-xs text-gray-400 mt-2">
+              Please fill all the fields before sending the message.
+            </p>
 
             <Form {...form}>
               <form
@@ -127,9 +136,13 @@ export default function ContactPage() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Full Name</FormLabel>
+                      <FormLabel>Full Name*</FormLabel>
                       <FormControl>
-                        <Input placeholder="First & Last Name" {...field} />
+                        <Input
+                          placeholder="First & Last Name"
+                          className="border-gray-300 focus:border-orange-400 focus-visible:ring-0 focus-visible:ring-offset-0"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -141,11 +154,12 @@ export default function ContactPage() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email Address</FormLabel>
+                      <FormLabel>Email Address*</FormLabel>
                       <FormControl>
                         <Input
                           type="email"
                           placeholder="you@example.com"
+                           className="border-gray-300 focus:border-orange-400 focus-visible:ring-0 focus-visible:ring-offset-0"
                           {...field}
                         />
                       </FormControl>
@@ -159,11 +173,12 @@ export default function ContactPage() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Message</FormLabel>
+                      <FormLabel>Message*</FormLabel>
                       <FormControl>
                         <Textarea
-                          rows={4}
-                          placeholder="Write at least 10 words..."
+                          rows={6}
+                          placeholder="Please type your queries/message here...."
+                           className=" min-h-40 resize-y border-gray-300 focus:border-orange-400 focus-visible:ring-0 focus-visible:ring-offset-0"
                           {...field}
                         />
                       </FormControl>
@@ -177,13 +192,6 @@ export default function ContactPage() {
                     {form.formState.errors.root.message}
                   </p>
                 )}
-
-                {success && (
-                  <p className="text-sm font-medium text-green-600">
-                    {success}
-                  </p>
-                )}
-
                 <Button
                   type="submit"
                   disabled={loading || !form.formState.isValid}

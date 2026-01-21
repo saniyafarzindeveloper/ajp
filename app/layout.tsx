@@ -3,8 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import MaintenanceBanner from "@/components/layout/MaintenanceBanner";
-
-
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "AJP",
@@ -19,10 +18,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Toaster
+          richColors
+          closeButton
+          position="top-right"
+          toastOptions={{
+            className: "rounded-lg shadow-md",
+          }}
+        />
         <MaintenanceBanner />
-        <Navbar /> 
-        {children} 
-        <Footer /> 
+        <Navbar />
+        {children}
+        <Footer />
       </body>
     </html>
   );
