@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import AutoChangingPartyName from "./AutoChangingPartyName";
 
 export default function Footer() {
   return (
@@ -12,17 +12,8 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-4">
-              <Image
-                src="/images/helicopter.png"
-                alt="AJP Logo"
-                width={140}
-                height={60}
-                className="object-contain"
-              />
               <span className="text-xl font-semibold leading-tight">
-                AAM JANTA PARTY
-                <br />
-                <span className="text-sm text-gray-300">INDIA</span>
+                <AutoChangingPartyName />
               </span>
             </Link>
 
@@ -44,10 +35,26 @@ export default function Footer() {
               About
             </h4>
             <ul className="mt-4 space-y-3 text-sm text-gray-300">
-              <li><Link href="/about-us" className="hover:text-white">Our Mission</Link></li>
-              <li><Link href="/leadership" className="hover:text-white">Leadership</Link></li>
-              <li><Link href="/history" className="hover:text-white">History</Link></li>
-              <li><Link href="/news" className="hover:text-white">News & Updates</Link></li>
+              <li>
+                <Link href="/about" className="hover:text-white">
+                  Our Mission
+                </Link>
+              </li>
+              <li>
+                <Link href="#core-members" className="hover:text-white">
+                  Leadership
+                </Link>
+              </li>
+              <li>
+                <Link href="/history" className="hover:text-white">
+                  History
+                </Link>
+              </li>
+              <li>
+                <Link href="/news" className="hover:text-white">
+                  News & Updates
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -56,10 +63,26 @@ export default function Footer() {
               Policies
             </h4>
             <ul className="mt-4 space-y-3 text-sm text-gray-300">
-              <li><Link href="/education" className="hover:text-white">Education</Link></li>
-              <li><Link href="/healthcare" className="hover:text-white">Healthcare</Link></li>
-              <li><Link href="/economy" className="hover:text-white">Economy</Link></li>
-              <li><Link href="/environment" className="hover:text-white">Environment</Link></li>
+              <li>
+                <Link href="/education" className="hover:text-white">
+                  Education
+                </Link>
+              </li>
+              <li>
+                <Link href="/healthcare" className="hover:text-white">
+                  Healthcare
+                </Link>
+              </li>
+              <li>
+                <Link href="/economy" className="hover:text-white">
+                  Economy
+                </Link>
+              </li>
+              <li>
+                <Link href="/environment" className="hover:text-white">
+                  Environment
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -68,10 +91,26 @@ export default function Footer() {
               Get Involved
             </h4>
             <ul className="mt-4 space-y-3 text-sm text-gray-300">
-              <li><Link href="/volunteer" className="hover:text-white">Volunteer</Link></li>
-              <li><Link href="/donate" className="hover:text-white">Donate</Link></li>
-              <li><Link href="/events" className="hover:text-white">Events</Link></li>
-              <li><Link href="/membership" className="hover:text-white">Membership</Link></li>
+              <li>
+                <Link href="/join-us" className="hover:text-white">
+                  Volunteer
+                </Link>
+              </li>
+              <li>
+                <Link href="/donate" className="hover:text-white">
+                  Donate
+                </Link>
+              </li>
+              <li>
+                <Link href="/events" className="hover:text-white">
+                  Events
+                </Link>
+              </li>
+              <li>
+                <Link href="/join-us" className="hover:text-white">
+                  Membership
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -79,7 +118,8 @@ export default function Footer() {
         {/* Divider */}
         <div className="mt-12 border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-gray-400 text-center md:text-left">
-            © {new Date().getFullYear()} AAM JANTA PARTY (INDIA). All rights reserved.
+            © {new Date().getFullYear()} AAM JANTA PARTY (INDIA). All rights
+            reserved.
           </p>
 
           <p className="text-xs text-gray-400">
