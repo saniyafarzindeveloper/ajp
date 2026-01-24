@@ -11,11 +11,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-4">
-              <span className="text-xl font-semibold leading-tight">
-                <AutoChangingPartyName />
-              </span>
-            </Link>
+            <span className="text-xl font-semibold leading-tight">
+              <AutoChangingPartyName />
+            </span>
 
             <p className="mt-6 max-w-sm text-sm text-gray-300 leading-relaxed">
               A people-first political movement committed to justice, equality,
