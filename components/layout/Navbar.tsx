@@ -15,7 +15,7 @@ import AutoChangingPartyName from "./AutoChangingPartyName";
 const menuItems = [
   {
     name: "Upcoming Events",
-    href: "/",
+    href: "/upcoming-events",
   },
   {
     name: "Media Resources",
