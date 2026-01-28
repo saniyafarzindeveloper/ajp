@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-type VisionPoint = {
+export type VisionPoint = {
   number: string;
   title: string;
   description: string;
@@ -15,7 +15,10 @@ type VisionSectionProps = {
   imageSrc: string;
 };
 
-const colorMap = {
+const colorMap: Record<
+  VisionPoint["color"],
+  { bg: string; text: string }
+> = {
   orange: {
     bg: "bg-orange-100",
     text: "text-orange-600",
@@ -40,7 +43,7 @@ export default function VisionSection({
   return (
     <section className="bg-white" id="vision">
       <div className="max-w-7xl mx-auto px-4 py-20">
-        {/* Section Header */}
+        {/* Header */}
         <div className="max-w-3xl">
           <span className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-gray-50 px-4 py-1 text-xs font-medium text-gray-700">
             <span className="h-2 w-2 rounded-full bg-orange-500" />
@@ -60,7 +63,7 @@ export default function VisionSection({
 
         {/* Content */}
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-10">
-          {/* Left – Points */}
+          {/* Points */}
           <div className="space-y-6">
             {points.map((point) => {
               const colors = colorMap[point.color];
@@ -84,7 +87,7 @@ export default function VisionSection({
                     <h3 className="text-lg font-medium text-gray-900">
                       {point.title}
                     </h3>
-                    <p className="mt-2 text-sm text-gray-600">
+                    <p className="mt-2 text-sm text-gray-600 leading-relaxed">
                       {point.description}
                     </p>
                   </div>
@@ -93,9 +96,9 @@ export default function VisionSection({
             })}
           </div>
 
-          {/* Right – Image */}
+          {/* Image */}
           <div className="rounded-3xl p-2 overflow-hidden">
-            <div className="relative w-full h-full rounded-2xl min-h-90">
+            <div className="relative w-full min-h-105 rounded-2xl">
               <Image
                 src={imageSrc}
                 alt={title}
@@ -110,4 +113,3 @@ export default function VisionSection({
     </section>
   );
 }
-

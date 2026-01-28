@@ -2,40 +2,20 @@ import CoreMembers from "@/components/sections/CoreMembers";
 import Hero from "@/components/sections/Hero";
 import Ideology from "@/components/sections/Ideology";
 import VisionSection from "@/components/sections/Vision";
+import { visionData } from "@/data/vision";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <VisionSection
-        badgeLabel="Our Vision"
-        title="A Stronger, Fairer India for Every Citizen"
-        description="Our vision is to build a nation where opportunity, dignity, and justice are accessible to all — driven by transparent leadership, people-centric policies, and sustainable development."
-        imageSrc="https://images.pexels.com/photos/4642378/pexels-photo-4642378.jpeg"
-        points={[
-          {
-            number: "01",
-            title: "Empowered Citizens",
-            description:
-              "A country where every citizen has access to quality education, healthcare, and opportunities to grow and thrive.",
-            color: "orange",
-          },
-          {
-            number: "02",
-            title: "Responsible Governance",
-            description:
-              "Decision-making that is transparent, accountable, and focused on long-term national interest rather than short-term gains.",
-            color: "yellow",
-          },
-          {
-            number: "03",
-            title: "Sustainable Progress",
-            description:
-              "Development that balances economic growth with environmental responsibility and social well-being.",
-            color: "green",
-          },
-        ]}
+       <VisionSection
+        badgeLabel={visionData.badgeLabel}
+        title={visionData.title}
+        description={visionData.description}
+        points={visionData.points}
+        imageSrc={visionData.imageSrc}
       />
+
 
       <Ideology
         badgeLabel="Our Ideology"
