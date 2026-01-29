@@ -1,7 +1,8 @@
-type IdeologyPoint = {
+export type IdeologyPoint = {
   number: string;
   title: string;
   description: string;
+  leaders?: string[];
   color: "orange" | "yellow" | "green";
 };
 
@@ -33,7 +34,7 @@ export default function IdeologySection({
   title,
   description,
   points,
-  closingText,
+  // closingText,
 }: IdeologySectionProps) {
   return (
     <section className="bg-gray-50">
@@ -51,9 +52,7 @@ export default function IdeologySection({
             {title}
           </h2>
 
-          <p className="mt-4 text-lg text-gray-600">
-            {description}
-          </p>
+          <p className="mt-4 text-lg text-gray-600">{description}</p>
         </div>
 
         {/* Ideology Cards */}
@@ -69,9 +68,7 @@ export default function IdeologySection({
                 <div
                   className={`h-10 w-10 rounded-xl flex items-center justify-center ${colors.bg}`}
                 >
-                  <span
-                    className={`text-lg font-semibold ${colors.text}`}
-                  >
+                  <span className={`text-lg font-semibold ${colors.text}`}>
                     {point.number}
                   </span>
                 </div>
@@ -83,19 +80,24 @@ export default function IdeologySection({
                 <p className="mt-3 text-sm text-gray-600">
                   {point.description}
                 </p>
+
+                {point.leaders && (
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {point.leaders.map((leader) => (
+                      <span key={leader}>
+                        <span
+                          className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ${colors.bg} ${colors.text}`}
+                        >
+                          {leader}
+                        </span>
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             );
           })}
         </div>
-
-        {/* Closing Statement */}
-        {closingText && (
-          <div className="mt-16 max-w-3xl">
-            <p className="text-base text-gray-700">
-              {closingText}
-            </p>
-          </div>
-        )}
       </div>
     </section>
   );
