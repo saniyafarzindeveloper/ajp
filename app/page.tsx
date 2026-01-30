@@ -21,7 +21,6 @@ export default function Home() {
         title={ideologyData.title}
         description={ideologyData.description}
         points={ideologyData.points}
-        // closingText={ideologyData.closingText}
       />
       <CoreMembers />
     </>

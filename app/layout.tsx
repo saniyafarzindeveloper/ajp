@@ -4,6 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import MaintenanceBanner from "@/components/layout/MaintenanceBanner";
 import { Toaster } from "@/components/ui/sonner";
+import { LanguageProvider } from "@/lib/language-provider";
 
 export const metadata: Metadata = {
   title: "AJP",
@@ -18,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <LanguageProvider>
         <Toaster
           richColors
           closeButton
@@ -30,6 +32,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

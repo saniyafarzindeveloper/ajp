@@ -1,9 +1,11 @@
-export type IdeologyPoint = {
+import type React from "react";
+
+type IdeologyPoint = {
   number: string;
   title: string;
   description: string;
   leaders?: string[];
-  color: "orange" | "yellow" | "green";
+  color: string;
 };
 
 type IdeologySectionProps = {
@@ -11,7 +13,6 @@ type IdeologySectionProps = {
   title: string;
   description: string;
   points: IdeologyPoint[];
-  closingText?: string;
 };
 
 const colorMap = {
@@ -29,12 +30,31 @@ const colorMap = {
   },
 };
 
+function renderDescriptionWithLeaders(
+  text: string,
+  leaders: string[] | undefined,
+  highlightClass: string,
+) {
+  if (!leaders || leaders.length === 0) return text;
+
+  return (
+    <>
+      {text}{" "}
+      {leaders.map((leader, index) => (
+        <span key={leader} className={`${highlightClass} font-medium`}>
+          {leader}
+          {index < leaders.length - 1 ? ", " : "."}
+        </span>
+      ))}
+    </>
+  );
+}
+
 export default function IdeologySection({
   badgeLabel,
   title,
   description,
   points,
-  // closingText,
 }: IdeologySectionProps) {
   return (
     <section className="bg-gray-50">
@@ -77,23 +97,13 @@ export default function IdeologySection({
                   {point.title}
                 </h3>
 
-                <p className="mt-3 text-sm text-gray-600">
-                  {point.description}
+                <p className="mt-3 text-sm text-gray-600 leading-relaxed">
+                  {renderDescriptionWithLeaders(
+                    point.description,
+                    point.leaders,
+                    colorMap[point.color].text,
+                  )}
                 </p>
-
-                {point.leaders && (
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {point.leaders.map((leader) => (
-                      <span key={leader}>
-                        <span
-                          className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ${colors.bg} ${colors.text}`}
-                        >
-                          {leader}
-                        </span>
-                      </span>
-                    ))}
-                  </div>
-                )}
               </div>
             );
           })}

@@ -1,0 +1,14 @@
+{
+  "nav": {
+    "upcomingEvents": "Upcoming Events",
+    "mediaResources": "Media Resources",
+    "photoGallery": "Photo Gallery",
+    "videoGallery": "Video Gallery",
+    "speech": "Speech",
+    "developmentInitiatives": "Development Initiatives",
+    "aboutUs": "About Us",
+    "contactUs": "Contact Us",
+    "joinUs": "Join Us",
+    "donate": "Donate Now"
+  }
+}
