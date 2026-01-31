@@ -1,4 +1,4 @@
-import {IdeologyPoint} from '../../components/sections/Ideology'
+import { IdeologyPoint } from "../ideologyTypes";
 
 export type IdeologyTranslations = {
   badgeLabel: string;
