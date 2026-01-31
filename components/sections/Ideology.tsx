@@ -1,5 +1,5 @@
 import type React from "react";
-import type { ColorKey, IdeologySectionProps } from "@/types/ideologyTypes";
+import type { ColorKey, IdeologySectionProps } from "@/types/translation/ideologyTypes";
 
 const colorMap: Record<ColorKey, { bg: string; text: string }> = {
   orange: {
