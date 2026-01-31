@@ -1,10 +1,7 @@
-'use client';
+"use client";
 import CoreMembers from "@/components/sections/CoreMembers";
 import Hero from "@/components/sections/Hero";
-import Ideology from "@/components/sections/Ideology";
 import VisionSection from "@/components/sections/Vision";
-import { visionData } from "@/data/vision";
-// import { ideologyData } from "@/data/ideology";
 import { useLanguage } from "@/lib/language-provider";
 
 export default function Home() {
@@ -13,18 +10,12 @@ export default function Home() {
     <>
       <Hero />
       <VisionSection
-        badgeLabel={visionData.badgeLabel}
-        title={visionData.title}
-        description={visionData.description}
-        points={visionData.points}
-        imageSrc={visionData.imageSrc}
+        badgeLabel={t.vision.badgeLabel}
+        title={t.vision.title}
+        description={t.vision.description}
+        points={t.vision.points}
+        imageSrc={t.vision.imageSrc}
       />
-      <Ideology
-      badgeLabel={t.ideology.badgeLabel}
-      title={t.ideology.title}
-      description={t.ideology.description}
-      points={t.ideology.points}
-    />
       <CoreMembers />
     </>
   );

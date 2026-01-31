@@ -1,11 +1,13 @@
 "use client";
 
 import { createContext, useContext, useState } from "react";
-import { dictionaries, Language } from "@/data/i18n";
+import { dictionaries } from "@/data/i18n";
+import type { Language } from "@/data/i18n";
+import type { Dictionary } from "@/types/translation/dictionary";
 
 type LanguageContextType = {
   lang: Language;
-  t: typeof dictionaries.en;
+  t: Dictionary;
   setLang: (lang: Language) => void;
 };
 

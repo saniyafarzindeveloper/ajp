@@ -1,36 +1,24 @@
-import Image from "next/image";
+"use client";
 
-const leaders = [
-  {
-    name: "HariBhai Patel",
-    role: "Rashtriya Adhyaksh",
-    image: "/images/hari.png",
-    bio: `HariBhai Patel is the National President of Aam Janta Party India.
-    With decades of grassroots experience, he has worked relentlessly to
-    empower the common citizen, promote transparent governance, and build
-    a people-first political movement rooted in integrity.`,
-  },
-  {
-    name: "Rahil Hussain",
-    role: "Rashtriya Upadhyaksh",
-    image: "/images/rahil.png",
-    bio: `Rahil Hussain serves as the National Vice President of the party.
-    Known for his organisational strength and youth outreach, He is a revolutionary leader who believes in sovereignty and inclusiveness of the country.`,
-  },
-];
+import Image from "next/image";
+import { useLanguage } from "@/lib/language-provider";
+import { leaderImages } from "@/data/coreMembers";
 
 export default function CoreMembers() {
+  const { t } = useLanguage();
+  const coreMembers = t.coreMembers;
+
   return (
     <section className="bg-[#f9fafb]" id="core-members">
       <div className="max-w-7xl mx-auto px-4 py-20">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center">
           <span className="inline-flex items-center rounded-full border border-gray-300 bg-gray-50 px-4 py-1 text-xs font-medium text-gray-700">
-            Party Leadership
+            {coreMembers.badge}
           </span>
 
           <h2 className="mt-6 text-3xl md:text-4xl font-semibold text-gray-900">
-            National Core Leadership
+            {coreMembers.title}
           </h2>
 
           <div className="flex justify-center mt-4">
@@ -38,14 +26,13 @@ export default function CoreMembers() {
           </div>
 
           <p className="mt-6 text-lg text-gray-600">
-            Experienced leadership guiding the party with vision,
-            responsibility, and commitment to national progress.
+            {coreMembers.description}
           </p>
         </div>
 
         {/* Leaders */}
         <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-12">
-          {leaders.map((leader) => (
+          {coreMembers.leaders.map((leader, index) => (
             <div
               key={leader.name}
               className="relative bg-gray-50 rounded-2xl p-6 md:p-8 border"
@@ -55,7 +42,7 @@ export default function CoreMembers() {
                 <div className="absolute inset-0 bg-linear-to-br from-orange-500 via-yellow-400 to-green-500" />
                 <div className="absolute inset-1 rounded-xl overflow-hidden bg-white">
                   <Image
-                    src={leader.image}
+                    src={leaderImages[index].image}
                     alt={leader.name}
                     width={400}
                     height={400}

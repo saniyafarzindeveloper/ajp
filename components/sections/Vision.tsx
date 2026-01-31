@@ -11,7 +11,7 @@ type VisionSectionProps = {
   badgeLabel: string;
   title: string;
   description: string;
-  points: VisionPoint[];
+  points: readonly VisionPoint[];
   imageSrc: string;
 };
 
