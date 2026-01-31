@@ -17,8 +17,7 @@ import AutoChangingPartyName from "./AutoChangingPartyName";
 import LanguageToggle from "./LanguageToggle";
 import { useLanguage } from "@/lib/language-provider";
 
-import type { NavKey } from "@/types/navigation";
-
+import type { NavKey } from "@/types/translation/navigation";
 
 const menuItems: {
   key: NavKey;
@@ -32,9 +31,9 @@ const menuItems: {
   {
     key: "mediaResources",
     subItems: [
-      { key: "photoGallery", href: "/" },
-      { key: "videoGallery", href: "/" },
-      { key: "speech", href: "/" },
+      { key: "photoGallery", href: "/photo-gallery" },
+      { key: "videoGallery", href: "/video-gallery" },
+      { key: "speech", href: "/speech" },
     ],
   },
   {
@@ -50,7 +49,6 @@ const menuItems: {
     href: "/contact-us",
   },
 ];
-
 
 export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
@@ -96,14 +94,14 @@ export default function Navbar() {
                       </ul>
                     )}
                   </div>
-                ) : (
+                ) : item.href ? (
                   <Link
                     href={item.href}
                     className="inline-flex items-center text-md font-normal text-gray-800 hover:text-gray-900"
                   >
                     {t.nav[item.key]}
                   </Link>
-                )}
+                ) : null}
               </li>
             ))}
           </ul>
@@ -113,11 +111,11 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center space-x-2">
           <LanguageToggle />
 
-          <Link href="/join-us">
+          {/* <Link href="/join-us">
             <Button className="bg-[#f58220] hover:bg-[#ef7e1a] text-white cursor-pointer">
               {t.nav.joinUs}
             </Button>
-          </Link>
+          </Link> */}
 
           <Link href="/donate">
             <Button className="bg-[#f16c20] hover:bg-[#d86b0c] text-white cursor-pointer">
@@ -177,12 +175,14 @@ export default function Navbar() {
                           </>
                         ) : (
                           <SheetClose asChild>
-                            <Link
-                              href={item.href}
-                              className="block px-2 py-1 text-sm hover:bg-gray-100"
-                            >
-                              {t.nav[item.key]}
-                            </Link>
+                            {item.href && (
+                              <Link
+                                href={item.href}
+                                className="block px-2 py-1 text-sm hover:bg-gray-100"
+                              >
+                                {t.nav[item.key]}
+                              </Link>
+                            )}
                           </SheetClose>
                         )}
                       </div>

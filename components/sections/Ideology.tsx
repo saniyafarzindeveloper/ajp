@@ -1,21 +1,7 @@
 import type React from "react";
+import type { ColorKey, IdeologySectionProps } from "@/types/ideologyTypes";
 
-type IdeologyPoint = {
-  number: string;
-  title: string;
-  description: string;
-  leaders?: string[];
-  color: string;
-};
-
-type IdeologySectionProps = {
-  badgeLabel: string;
-  title: string;
-  description: string;
-  points: IdeologyPoint[];
-};
-
-const colorMap = {
+const colorMap: Record<ColorKey, { bg: string; text: string }> = {
   orange: {
     bg: "bg-orange-100",
     text: "text-orange-600",

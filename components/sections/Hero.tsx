@@ -1,8 +1,12 @@
+"use client";
 
 import Link from "next/link";
 import HeroCarousel from "./Carousel";
+import { useLanguage } from "@/lib/language-provider";
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative bg-white overflow-hidden">
       {/* Subtle tricolor accent */}
@@ -17,21 +21,20 @@ export default function Hero() {
               <span className="h-2 w-2 rounded-full bg-orange-500" />
               <span className="h-2 w-2 rounded-full bg-yellow-400" />
               <span className="h-2 w-2 rounded-full bg-green-500" />
-              People • Progress • Prosperity
+              {t.hero.badge}
             </span>
 
             <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-gray-900">
-              Building a{" "}
+              {t.hero.titleLine1}{" "}
               <span className="relative">
-                Stronger India
+                {t.hero.titleHighlight}
                 <span className="absolute left-0 -bottom-2 h-1 w-full bg-linear-to-r from-orange-500 via-yellow-400 to-green-500 rounded-full" />
               </span>{" "}
-              Together
+              {t.hero.titleLine2}
             </h1>
 
             <p className="mt-6 max-w-xl text-lg text-gray-600">
-              A people-first political movement committed to honest leadership,
-              inclusive growth, and real solutions that reach every citizen.
+              {t.hero.description}
             </p>
 
             {/* CTAs */}
@@ -40,21 +43,20 @@ export default function Hero() {
                 href="/join-us"
                 className="inline-flex items-center justify-center rounded-xl bg-linear-to-r from-orange-500 to-green-500 px-8 py-4 text-sm font-medium text-white hover:opacity-90 transition"
               >
-                Join the Movement
+                {t.hero.ctaJoin}
               </Link>
 
               <Link
                 href="#vision"
                 className="inline-flex items-center justify-center rounded-xl border border-gray-300 px-8 py-4 text-sm font-medium text-gray-900 hover:border-green-500 transition"
               >
-                Read Our Vision
+                {t.hero.ctaVision}
               </Link>
             </div>
           </div>
 
           {/* Right Visual */}
-         <HeroCarousel />
-
+          <HeroCarousel />
         </div>
       </div>
     </section>

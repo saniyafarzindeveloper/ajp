@@ -1,11 +1,14 @@
+'use client';
 import CoreMembers from "@/components/sections/CoreMembers";
 import Hero from "@/components/sections/Hero";
 import Ideology from "@/components/sections/Ideology";
 import VisionSection from "@/components/sections/Vision";
 import { visionData } from "@/data/vision";
-import { ideologyData } from "@/data/ideology";
+// import { ideologyData } from "@/data/ideology";
+import { useLanguage } from "@/lib/language-provider";
 
 export default function Home() {
+  const { t } = useLanguage();
   return (
     <>
       <Hero />
@@ -17,11 +20,11 @@ export default function Home() {
         imageSrc={visionData.imageSrc}
       />
       <Ideology
-        badgeLabel={ideologyData.badgeLabel}
-        title={ideologyData.title}
-        description={ideologyData.description}
-        points={ideologyData.points}
-      />
+      badgeLabel={t.ideology.badgeLabel}
+      title={t.ideology.title}
+      description={t.ideology.description}
+      points={t.ideology.points}
+    />
       <CoreMembers />
     </>
   );
