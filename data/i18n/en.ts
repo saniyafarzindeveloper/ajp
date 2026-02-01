@@ -1,80 +1,3 @@
-// const en = {
-//   nav: {
-//     upcomingEvents: "Upcoming Events",
-//     mediaResources: "Media Resources",
-//     photoGallery: "Photo Gallery",
-//     videoGallery: "Video Gallery",
-//     speech: "Speech",
-//     developmentInitiatives: "Development Initiatives",
-//     aboutUs: "About Us",
-//     contactUs: "Contact Us",
-//     joinUs: "Join Us",
-//     donate: "Donate Now",
-//   },
-
-//   hero: {
-//     badge: "People • Progress • Prosperity",
-//     titleLine1: "Building a",
-//     titleHighlight: "Stronger India",
-//     titleLine2: "Together",
-//     description:
-//       "A people-first political movement committed to honest leadership, inclusive growth, and real solutions that reach every citizen.",
-//     ctaJoin: "Join Our Party",
-//     ctaVision: "Read Our Vision",
-//   },
-
-//   coreMembers: {
-//     badge: "Party Leadership",
-//     title: "National Core Leadership",
-//     description:
-//       "Experienced leadership guiding the party with vision and responsibility.",
-//     leaders: [
-//       {
-//         name: "HariBhai Patel",
-//         role: "Rashtriya Adhyaksh",
-//         bio: "National President with decades of grassroots experience.",
-//       },
-//       {
-//         name: "Rahil Hussain",
-//         role: "Rashtriya Upadhyaksh",
-//         bio: "National Vice President focused on youth and inclusiveness.",
-//       },
-//     ],
-//   },
-
-//   vision: {
-//     badgeLabel: "Our Vision",
-//     title: "A Democratic India for Everyone",
-//     description:
-//       "Committed to building a modern India through science, technology, and culture.",
-//     imageSrc:
-//       "https://images.unsplash.com/photo-1745962979027-c5e51183cf40?q=80&w=2131",
-
-//     points: [
-//       {
-//         number: "01",
-//         title: "Empowered Society",
-//         description: "Education and scientific growth for all.",
-//         color: "orange",
-//       },
-//       {
-//         number: "02",
-//         title: "Equality & Justice",
-//         description: "Ending discrimination across society.",
-//         color: "yellow",
-//       },
-//       {
-//         number: "03",
-//         title: "Peaceful Democracy",
-//         description: "Constitutional values and non-violence.",
-//         color: "green",
-//       },
-//     ],
-//   },
-// } as const;
-
-// export default en;
-// data/i18n/en.ts
 import type { Dictionary } from "@/types/translation/dictionary";
 
 const en: Dictionary = {
@@ -126,22 +49,19 @@ const en: Dictionary = {
     title: "A Democratic India for Everyone",
     description:
       "Committed to science, technology, education, healthcare and security.",
-    imageSrc:
-      "https://images.unsplash.com/photo-1745962979027-c5e51183cf40",
+    imageSrc: "https://images.unsplash.com/photo-1745962979027-c5e51183cf40",
 
     points: [
       {
         number: "01",
         title: "Empowered & Educated Society",
-        description:
-          "Strengthening education, science and technology for all.",
+        description: "Strengthening education, science and technology for all.",
         color: "orange",
       },
       {
         number: "02",
         title: "Equality & Social Justice",
-        description:
-          "Eliminating discrimination and ensuring dignity for all.",
+        description: "Eliminating discrimination and ensuring dignity for all.",
         color: "yellow",
       },
       {
@@ -153,6 +73,76 @@ const en: Dictionary = {
       },
     ],
   },
+
+  about: {
+    hero: {
+      titleLine1: "A Movement Led by the People,",
+      titleLine2: "For the People",
+      description:
+        "Aam Janta Party India is not just a political party — it is a nationwide movement built on truth, transparency, and public participation.",
+    },
+
+    whoWeAre: {
+      title: "Who We Are",
+      paragraph1:
+        "Aam Janta Party India (AJP) emerged from the belief that politics should serve citizens — not political dynasties or special interests.",
+      paragraph2:
+        "We represent farmers, workers, women, youth, and entrepreneurs — citizens who want governance that listens, acts, and delivers.",
+    },
+
+    visionMission: {
+      vision: {
+        label: "Our Vision",
+        title: "A Just, Equal & Strong India",
+        description:
+          "An India where opportunity, dignity, and justice are accessible to every citizen — regardless of background.",
+      },
+      mission: {
+        label: "Our Mission",
+        title: "Governance That Works for People",
+        description:
+          "To build transparent institutions, empower local communities, and ensure long-term national development.",
+      },
+    },
+
+    coreValues: {
+      title: "Our Core Values",
+      subtitle: "The principles that guide every decision we make.",
+      items: [
+        {
+          title: "People First",
+          description:
+            "We believe governance must always reflect the will and welfare of the people.",
+          color: "orange",
+        },
+        {
+          title: "Transparent Politics",
+          description:
+            "Honest leadership and accountability form the foundation of trust.",
+          color: "yellow",
+        },
+        {
+          title: "Equal Opportunity",
+          description:
+            "Every citizen deserves the same chance to grow and succeed.",
+          color: "green",
+        },
+        {
+          title: "Nation Building",
+          description:
+            "Policies must strengthen the nation socially, economically, and morally.",
+          color: "orange",
+        },
+      ],
+    },
+  },
+  cta: {
+  title: "Together, We Build the Future",
+  description:
+    "Development is not a promise — it is a responsibility. Your participation strengthens democracy and governance.",
+  primaryAction: "Join the Movement",
+  secondaryAction: "Support the Initiatives",
+},
 };
 
 export default en;
