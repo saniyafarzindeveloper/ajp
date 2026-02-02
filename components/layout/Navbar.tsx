@@ -123,47 +123,53 @@ export default function Navbar() {
             </Button>
           </Link>
         </div>
-
+        
         {/* MOBILE MENU */}
         <div className="lg:hidden">
           <Sheet>
             <SheetTrigger>
               <div className="flex flex-col space-y-1">
-                <span className="h-1 w-5 bg-gray-800"></span>
-                <span className="h-1 w-5 bg-gray-800"></span>
-                <span className="h-1 w-5 bg-gray-800"></span>
+                <span className="h-1 w-5 bg-gray-800 rounded" />
+                <span className="h-1 w-5 bg-gray-800 rounded" />
+                <span className="h-1 w-5 bg-gray-800 rounded" />
               </div>
             </SheetTrigger>
 
             <VisuallyHidden>
-              <SheetContent side="right" className="w-72 bg-white p-4">
-                <div className="flex items-center justify-between">
+              <SheetContent side="right" className="w-80 bg-white p-0">
+                {/* Header */}
+                <div className="flex items-center justify-between px-4 py-4 border-b">
                   <AutoChangingPartyName />
                   <LanguageToggle />
                 </div>
 
-                <div className="flex flex-col gap-4 mt-4">
-                  <nav className="flex flex-col gap-3">
+                {/* Navigation */}
+                <div className="flex flex-col px-4 py-6">
+                  <nav className="flex flex-col gap-2">
                     {menuItems.map((item, index) => (
                       <div key={item.key}>
                         {item.subItems ? (
                           <>
                             <button
                               onClick={() => toggleDropdown(index)}
-                              className="flex items-center justify-between w-full text-sm font-light text-gray-800"
+                              className="flex items-center justify-between w-full rounded-lg px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 transition"
                             >
                               {t.nav[item.key]}
-                              <ChevronDown className="h-4 w-4" />
+                              <ChevronDown
+                                className={`h-4 w-4 transition ${
+                                  openDropdown === index ? "rotate-180" : ""
+                                }`}
+                              />
                             </button>
 
                             {openDropdown === index && (
-                              <ul className="ml-3 mt-2 space-y-2">
+                              <ul className="ml-3 mt-2 space-y-1">
                                 {item.subItems.map((sub) => (
                                   <li key={sub.key}>
                                     <SheetClose asChild>
                                       <Link
                                         href={sub.href}
-                                        className="block px-2 py-1 text-sm hover:bg-gray-100"
+                                        className="block rounded-md px-3 py-2 text-sm text-gray-600 hover:bg-gray-100 transition"
                                       >
                                         {t.nav[sub.key]}
                                       </Link>
@@ -174,36 +180,42 @@ export default function Navbar() {
                             )}
                           </>
                         ) : (
-                          <SheetClose asChild>
-                            {item.href && (
+                          item.href && (
+                            <SheetClose asChild>
                               <Link
                                 href={item.href}
-                                className="block px-2 py-1 text-sm hover:bg-gray-100"
+                                className="block rounded-lg px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-100 transition"
                               >
                                 {t.nav[item.key]}
                               </Link>
-                            )}
-                          </SheetClose>
+                            </SheetClose>
+                          )
                         )}
                       </div>
                     ))}
                   </nav>
 
-                  <SheetClose asChild>
-                    <Link href="/join-us">
-                      <Button className="bg-[#f58220] w-full text-white mt-4">
-                        {t.nav.joinUs}
-                      </Button>
-                    </Link>
-                  </SheetClose>
+                  {/* Divider */}
+                  <div className="my-6 h-px bg-gray-200" />
 
-                  <SheetClose asChild>
-                    <Link href="/donate">
-                      <Button className="bg-[#f58220] w-full text-white mt-2">
-                        {t.nav.donate}
-                      </Button>
-                    </Link>
-                  </SheetClose>
+                  {/* CTA Buttons */}
+                  <div className="flex flex-col gap-3">
+                    <SheetClose asChild>
+                      <Link href="/join-us">
+                        <Button className="w-full bg-[#f58220] hover:bg-[#ef7e1a] text-white">
+                          {t.nav.joinUs}
+                        </Button>
+                      </Link>
+                    </SheetClose>
+
+                    <SheetClose asChild>
+                      <Link href="/donate">
+                        <Button className="w-full border border-[#f58220] text-[#f58220] bg-transparent hover:bg-orange-50">
+                          {t.nav.donate}
+                        </Button>
+                      </Link>
+                    </SheetClose>
+                  </div>
                 </div>
               </SheetContent>
             </VisuallyHidden>

@@ -5,6 +5,7 @@ import type { CoreMembersTranslations } from "./coreMembers";
 import type { VisionTranslations } from "./vision";
 import { AboutTranslations } from "./about";
 import { CTATranslations } from "./cta";
+import { DonateTranslations } from "./donate";
 
 export type Dictionary = {
   nav: NavTranslations;
@@ -13,4 +14,5 @@ export type Dictionary = {
   vision: VisionTranslations;
   about: AboutTranslations;
   cta: CTATranslations;
+  donatePage: DonateTranslations;
 };

@@ -143,6 +143,36 @@ const en: Dictionary = {
   primaryAction: "Join the Movement",
   secondaryAction: "Support the Initiatives",
 },
+donatePage: {
+  pageTitle: "Contribute to the Movement",
+  chooseAmount: "Choose Amount",
+  customAmountPlaceholder: "Custom amount",
+  panNote: "Donations above ₹2,000 require PAN details as per law.",
+
+  donorDetails: "Donor Details",
+  fullName: "Full Name (as per PAN)",
+  mobile: "Mobile Number",
+  email: "Email (optional)",
+  state: "State",
+  pan: "PAN Number",
+
+  declaration:
+    "I confirm that I am an Indian citizen and this donation is made from my own funds, in compliance with Election Commission of India regulations.",
+
+  submit: "Contribute Securely",
+
+  sidebarTitle: "Why Your Donation Matters",
+  sidebarPoints: [
+    "Supports grassroots campaigns",
+    "Helps organise community outreach",
+    "Strengthens transparent governance efforts",
+    "Enables policy research and awareness",
+  ],
+
+  footerNote:
+    "All contributions are subject to disclosure under applicable laws. For queries, contact the party office.",
+},
+
 };
 
 export default en;
