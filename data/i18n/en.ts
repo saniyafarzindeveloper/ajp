@@ -172,6 +172,36 @@ donatePage: {
   footerNote:
     "All contributions are subject to disclosure under applicable laws. For queries, contact the party office.",
 },
+contact: {
+  heroTitle: "Get in Touch",
+  heroDescription:
+    "Whether you’re a citizen, volunteer, media representative, or supporter — we’d love to hear from you.",
+
+  emailLabel: "Email",
+  addressLabel: "Office Address",
+
+  formTitle: "Send Us a Message",
+  formHint: "Please fill all the fields before sending the message.",
+
+  nameLabel: "Full Name*",
+  namePlaceholder: "First & Last Name",
+
+  emailFieldLabel: "Email Address*",
+  emailPlaceholder: "you@example.com",
+
+  messageLabel: "Message*",
+  messagePlaceholder: "Please type your queries/message here....",
+
+  submitIdle: "Send Message",
+  submitLoading: "Sending...",
+
+  successTitle: "Message sent successfully",
+  successDescription: "We’ll get back to you soon.",
+
+  errorTitle: "Failed to send message",
+  genericError: "Something went wrong. Please try again later.",
+},
+
 
 };
 

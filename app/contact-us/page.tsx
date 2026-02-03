@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useLanguage } from "@/lib/language-provider";
 
 import {
   Form,
@@ -38,6 +39,9 @@ const contactSchema = z.object({
 type ContactFormValues = z.infer<typeof contactSchema>;
 
 export default function ContactPage() {
+  const { t } = useLanguage();
+  const { contact } = t;
+
   const [loading, setLoading] = useState(false);
 
   const form = useForm<ContactFormValues>({
@@ -65,19 +69,19 @@ export default function ContactPage() {
       throw new Error(data.error || "Failed to send message");
     }
 
-    toast.success("Message sent successfully", {
-      description: "We’ll get back to you soon.",
+    toast.success(contact.successTitle, {
+      description: contact.successDescription,
     });
 
     form.reset();
   } catch (err) {
     if (err instanceof Error) {
-      toast.error("Failed to send message", {
+      toast.error(contact.errorTitle, {
         description: err.message,
       });
     } else {
       toast.error("Something went wrong", {
-        description: "Please try again later.",
+        description: contact.genericError,
       });
     }
   } finally {
@@ -92,22 +96,21 @@ export default function ContactPage() {
         <div className="grid lg:grid-cols-2 gap-16">
           {/* LEFT */}
           <div>
-            <h2 className="text-3xl font-bold text-gray-900">Get in Touch</h2>
+            <h2 className="text-3xl font-bold text-gray-900"> {contact.heroTitle}</h2>
             <p className="mt-6 text-lg text-gray-600 max-w-xl">
-              Whether you’re a citizen, volunteer, media representative, or
-              supporter — we’d love to hear from you.
+             {contact.heroDescription}
             </p>
 
             <div className="mt-10 space-y-6">
               <div>
-                <p className="text-sm text-gray-500">Email</p>
+                <p className="text-sm text-gray-500">{contact.emailLabel}</p>
                 <p className="text-lg text-gray-900">
                   📩 info@aamjantapartyindia.in
                 </p>
               </div>
 
               <div>
-                <p className="text-sm text-gray-500">Office Address</p>
+                <p className="text-sm text-gray-500">{contact.addressLabel}</p>
                 <p className="text-lg text-gray-900 leading-relaxed">
                   📍 Aam Janta Party India <br />
                   Sector 44, Gurugram <br />
@@ -120,10 +123,10 @@ export default function ContactPage() {
           {/* RIGHT – FORM */}
           <div className="bg-gray-50 rounded-2xl p-8 shadow-sm">
             <h3 className="text-2xl font-semibold text-gray-900">
-              Send Us a Message
+              {contact.formTitle}
             </h3>
             <p className="text-xs text-gray-400 mt-2">
-              Please fill all the fields before sending the message.
+               {contact.formHint}
             </p>
 
             <Form {...form}>
@@ -136,10 +139,10 @@ export default function ContactPage() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Full Name*</FormLabel>
+                      <FormLabel>{contact.nameLabel}</FormLabel>
                       <FormControl>
                         <Input
-                          placeholder="First & Last Name"
+                          placeholder={contact.nameLabel}
                           className="border-gray-300 focus:border-orange-400 focus-visible:ring-0 focus-visible:ring-offset-0"
                           {...field}
                         />
@@ -154,11 +157,11 @@ export default function ContactPage() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email Address*</FormLabel>
+                      <FormLabel>{contact.emailFieldLabel}</FormLabel>
                       <FormControl>
                         <Input
                           type="email"
-                          placeholder="you@example.com"
+                          placeholder={contact.emailFieldLabel}
                            className="border-gray-300 focus:border-orange-400 focus-visible:ring-0 focus-visible:ring-offset-0"
                           {...field}
                         />
@@ -173,11 +176,11 @@ export default function ContactPage() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Message*</FormLabel>
+                      <FormLabel>{contact.messagePlaceholder}</FormLabel>
                       <FormControl>
                         <Textarea
                           rows={6}
-                          placeholder="Please type your queries/message here...."
+                          placeholder={contact.messagePlaceholder}
                            className=" min-h-40 resize-y border-gray-300 focus:border-orange-400 focus-visible:ring-0 focus-visible:ring-offset-0"
                           {...field}
                         />
@@ -197,7 +200,7 @@ export default function ContactPage() {
                   disabled={loading || !form.formState.isValid}
                   className="w-full bg-orange-500 hover:bg-orange-600 disabled:opacity-50 cursor-pointer"
                 >
-                  {loading ? "Sending..." : "Send Message"}
+                 {loading ? contact.submitLoading : contact.submitIdle}
                 </Button>
               </form>
             </Form>

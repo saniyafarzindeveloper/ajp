@@ -58,10 +58,22 @@ export default function DonatePage() {
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
-              <input placeholder={d.fullName} className="rounded-xl border px-4 py-3" />
-              <input placeholder={d.mobile} className="rounded-xl border px-4 py-3" />
-              <input placeholder={d.email} className="rounded-xl border px-4 py-3" />
-              <input placeholder={d.state} className="rounded-xl border px-4 py-3" />
+              <input
+                placeholder={d.fullName}
+                className="rounded-xl border px-4 py-3"
+              />
+              <input
+                placeholder={d.mobile}
+                className="rounded-xl border px-4 py-3"
+              />
+              <input
+                placeholder={d.email}
+                className="rounded-xl border px-4 py-3"
+              />
+              <input
+                placeholder={d.state}
+                className="rounded-xl border px-4 py-3"
+              />
             </div>
 
             {Number(amount) > 2000 && (

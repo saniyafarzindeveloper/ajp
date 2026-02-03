@@ -180,6 +180,35 @@ donatePage: {
   footerNote:
     "सभी योगदान लागू कानूनों के अंतर्गत प्रकटीकरण के अधीन हैं। प्रश्नों के लिए पार्टी कार्यालय से संपर्क करें।",
 },
+contact: {
+  heroTitle: "संपर्क करें",
+  heroDescription:
+    "चाहे आप नागरिक हों, स्वयंसेवक हों, मीडिया प्रतिनिधि हों या समर्थक — हम आपसे सुनना चाहेंगे।",
+
+  emailLabel: "ईमेल",
+  addressLabel: "कार्यालय का पता",
+
+  formTitle: "हमें संदेश भेजें",
+  formHint: "कृपया संदेश भेजने से पहले सभी फ़ील्ड भरें।",
+
+  nameLabel: "पूरा नाम*",
+  namePlaceholder: "पहला और अंतिम नाम",
+
+  emailFieldLabel: "ईमेल पता*",
+  emailPlaceholder: "you@example.com",
+
+  messageLabel: "संदेश*",
+  messagePlaceholder: "कृपया अपना संदेश यहाँ लिखें....",
+
+  submitIdle: "संदेश भेजें",
+  submitLoading: "भेजा जा रहा है...",
+
+  successTitle: "संदेश सफलतापूर्वक भेजा गया",
+  successDescription: "हम जल्द ही आपसे संपर्क करेंगे।",
+
+  errorTitle: "संदेश भेजने में विफल",
+  genericError: "कुछ गलत हो गया। कृपया बाद में पुनः प्रयास करें।",
+},
 
 };
 
