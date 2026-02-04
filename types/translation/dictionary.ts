@@ -7,6 +7,8 @@ import { AboutTranslations } from "./about";
 import { CTATranslations } from "./cta";
 import { DonateTranslations } from "./donate";
 import { ContactTranslations } from "./contact";
+import { EventsTranslations } from "./event";
+import { FooterTranslations } from "./footer";
 
 export type Dictionary = {
   nav: NavTranslations;
@@ -17,4 +19,6 @@ export type Dictionary = {
   cta: CTATranslations;
   donatePage: DonateTranslations;
   contact: ContactTranslations;
+  events: EventsTranslations;
+  footer: FooterTranslations
 };

@@ -201,6 +201,103 @@ contact: {
   errorTitle: "Failed to send message",
   genericError: "Something went wrong. Please try again later.",
 },
+events: {
+  heroTitle: "Upcoming Events",
+  heroDescription:
+    "Join us at our upcoming rallies, meetings, and community programs as we work together to shape a stronger and fairer India.",
+
+  viewDetails: "View Details",
+
+  emptyState:
+    "No upcoming events at the moment. Please check back soon.",
+
+  meta: {
+    date: "Date",
+    time: "Time",
+    location: "Location",
+  },
+
+  events: [
+    {
+      id: 1,
+      title: "Jan Samvad Rally – Gurugram",
+      date: "25 March 2026",
+      time: "10:00 AM – 1:00 PM",
+      location: "Sector 44, Gurugram, Haryana",
+      description:
+        "An open dialogue with citizens to discuss local issues, governance, and development priorities.",
+      image:
+        "https://images.pexels.com/photos/2774568/pexels-photo-2774568.jpeg",
+      tag: "Public Rally",
+    },
+    {
+      id: 2,
+      title: "Women Empowerment Conference",
+      date: "2 April 2026",
+      time: "11:00 AM – 3:00 PM",
+      location: "Community Hall, New Delhi",
+      description:
+        "Focused discussions on women’s safety, education, employment, and leadership opportunities.",
+      image:
+        "https://images.pexels.com/photos/13231504/pexels-photo-13231504.jpeg",
+      tag: "Conference",
+    },
+    {
+      id: 3,
+      title: "Youth Interaction Program",
+      date: "10 April 2026",
+      time: "4:00 PM – 6:00 PM",
+      location: "City Auditorium, Jaipur",
+      description:
+        "Interactive session with students and young professionals on jobs, skills, and nation-building.",
+      image:
+        "https://images.pexels.com/photos/29555738/pexels-photo-29555738.jpeg",
+      tag: "Youth",
+    },
+  ],
+},
+footer: {
+  description:
+    "A people-first political movement committed to justice, equality, and inclusive development across India.",
+
+  address: `123 Liberty Avenue,
+Capitol City, India – 123456`,
+
+  sections: [
+    {
+      title: "About",
+      links: [
+        { label: "Our Mission", href: "/about" },
+        { label: "Leadership", href: "#core-members" },
+        { label: "History", href: "/history" },
+        { label: "News & Updates", href: "/news" },
+      ],
+    },
+    {
+      title: "Policies",
+      links: [
+        { label: "Education", href: "/education" },
+        { label: "Healthcare", href: "/healthcare" },
+        { label: "Economy", href: "/economy" },
+        { label: "Environment", href: "/environment" },
+      ],
+    },
+    {
+      title: "Get Involved",
+      links: [
+        { label: "Volunteer", href: "/join-us" },
+        { label: "Donate", href: "/donate" },
+        { label: "Events", href: "/events" },
+        { label: "Membership", href: "/join-us" },
+      ],
+    },
+  ],
+
+  copyright:
+    "© 2026 AAM JANTA PARTY (INDIA). All rights reserved.",
+
+  developedBy: "Designed & Developed by",
+},
 
 
 };

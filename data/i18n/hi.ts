@@ -209,6 +209,103 @@ contact: {
   errorTitle: "संदेश भेजने में विफल",
   genericError: "कुछ गलत हो गया। कृपया बाद में पुनः प्रयास करें।",
 },
+events: {
+  heroTitle: "आगामी कार्यक्रम",
+  heroDescription:
+    "हमारे आगामी जनसभाओं, बैठकों और सामुदायिक कार्यक्रमों में शामिल हों और एक मजबूत व न्यायपूर्ण भारत के निर्माण में भागीदार बनें।",
+
+  viewDetails: "विवरण देखें",
+
+  emptyState:
+    "फिलहाल कोई आगामी कार्यक्रम नहीं है। कृपया बाद में पुनः देखें।",
+
+  meta: {
+    date: "तारीख",
+    time: "समय",
+    location: "स्थान",
+  },
+
+  events: [
+    {
+      id: 1,
+      title: "जन संवाद रैली – गुरुग्राम",
+      date: "25 मार्च 2026",
+      time: "10:00 AM – 1:00 PM",
+      location: "सेक्टर 44, गुरुग्राम, हरियाणा",
+      description:
+        "स्थानीय मुद्दों, शासन और विकास प्राथमिकताओं पर नागरिकों के साथ खुला संवाद।",
+      image:
+        "https://images.pexels.com/photos/2774568/pexels-photo-2774568.jpeg",
+      tag: "जनसभा",
+    },
+    {
+      id: 2,
+      title: "महिला सशक्तिकरण सम्मेलन",
+      date: "2 अप्रैल 2026",
+      time: "11:00 AM – 3:00 PM",
+      location: "कम्युनिटी हॉल, नई दिल्ली",
+      description:
+        "महिला सुरक्षा, शिक्षा, रोजगार और नेतृत्व अवसरों पर केंद्रित चर्चा।",
+      image:
+        "https://images.pexels.com/photos/13231504/pexels-photo-13231504.jpeg",
+      tag: "सम्मेलन",
+    },
+    {
+      id: 3,
+      title: "युवा संवाद कार्यक्रम",
+      date: "10 अप्रैल 2026",
+      time: "4:00 PM – 6:00 PM",
+      location: "सिटी ऑडिटोरियम, जयपुर",
+      description:
+        "नौकरी, कौशल और राष्ट्र निर्माण पर छात्रों और युवाओं के साथ संवाद।",
+      image:
+        "https://images.pexels.com/photos/29555738/pexels-photo-29555738.jpeg",
+      tag: "युवा",
+    },
+  ],
+},
+footer: {
+  description:
+    "न्याय, समानता और समावेशी विकास के लिए प्रतिबद्ध एक जन-आधारित राजनीतिक आंदोलन।",
+
+  address: `123 लिबर्टी एवेन्यू,
+कैपिटल सिटी, भारत – 123456`,
+
+  sections: [
+    {
+      title: "हमारे बारे में",
+      links: [
+        { label: "हमारा मिशन", href: "/about" },
+        { label: "नेतृत्व", href: "#core-members" },
+        { label: "इतिहास", href: "/history" },
+        { label: "समाचार", href: "/news" },
+      ],
+    },
+    {
+      title: "नीतियाँ",
+      links: [
+        { label: "शिक्षा", href: "/education" },
+        { label: "स्वास्थ्य", href: "/healthcare" },
+        { label: "अर्थव्यवस्था", href: "/economy" },
+        { label: "पर्यावरण", href: "/environment" },
+      ],
+    },
+    {
+      title: "सहभागिता",
+      links: [
+        { label: "स्वयंसेवक बनें", href: "/join-us" },
+        { label: "दान करें", href: "/donate" },
+        { label: "कार्यक्रम", href: "/events" },
+        { label: "सदस्यता", href: "/join-us" },
+      ],
+    },
+  ],
+
+  copyright:
+    "© 2026 आम जनता पार्टी (इंडिया). सर्वाधिकार सुरक्षित।",
+
+  developedBy: "डिज़ाइन एवं विकास",
+},
 
 };
 
