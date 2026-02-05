@@ -298,8 +298,101 @@ Capitol City, India – 123456`,
 
   developedBy: "Designed & Developed by",
 },
+developmentInitiatives: {
+    hero: {
+      title: "Development Initiatives",
+      description:
+        "Aam Janta Party India is committed to inclusive development that empowers women, strengthens youth, and builds a resilient nation.",
+    },
 
+    intro: {
+      title: "Our Roadmap for a Stronger India",
+      description:
+        "Our development agenda focuses on people-centric policies that create opportunity, ensure safety, and promote national progress.",
+    },
 
+    initiatives: [
+      {
+        title: "Women Empowerment",
+        desc:
+          "Ensuring equal opportunities, economic independence, and leadership roles for women across all sectors of society.",
+        color: "orange",
+        image:
+          "https://images.pexels.com/photos/35605404/pexels-photo-35605404.jpeg",
+        focusPoints: [
+          "Policy-driven implementation",
+          "Economic independence",
+          "Leadership representation",
+        ],
+      },
+      {
+        title: "Accessible Healthcare",
+        desc:
+          "Quality and affordable healthcare for every citizen through strengthened public health infrastructure and preventive care.",
+        color: "green",
+        image:
+          "https://images.pexels.com/photos/236380/pexels-photo-236380.jpeg",
+        focusPoints: [
+          "Affordable medical services",
+          "Stronger public hospitals",
+          "Preventive healthcare focus",
+        ],
+      },
+      {
+        title: "Education for All",
+        desc:
+          "Universal access to quality education, from early childhood to higher education, regardless of socio-economic background.",
+        color: "yellow",
+        image:
+          "https://images.pexels.com/photos/764681/pexels-photo-764681.jpeg",
+        focusPoints: [
+          "Quality public education",
+          "Equal learning opportunities",
+          "Skill-based learning",
+        ],
+      },
+      {
+        title: "Strict Laws for Women’s Safety",
+        desc:
+          "Zero tolerance for crimes against women through fast-track courts, strict enforcement, and victim support systems.",
+        color: "orange",
+        image:
+          "https://images.pexels.com/photos/6077326/pexels-photo-6077326.jpeg",
+        focusPoints: [
+          "Fast-track justice",
+          "Strict law enforcement",
+          "Victim support mechanisms",
+        ],
+      },
+      {
+        title: "Women Regiment in the Indian Army",
+        desc:
+          "Formation of dedicated women regiments to promote gender equality, national pride, and leadership in defense services.",
+        color: "green",
+        image:
+          "https://images.pexels.com/photos/13316131/pexels-photo-13316131.jpeg",
+        focusPoints: [
+          "Gender equality in defence",
+          "National pride & discipline",
+          "Leadership opportunities",
+        ],
+      },
+      {
+        title: "Jobs & Skill Development for Youth",
+        desc:
+          "Large-scale skill training, entrepreneurship support, and employment generation to unlock India’s demographic dividend.",
+        color: "yellow",
+        image:
+          "https://images.pexels.com/photos/4963433/pexels-photo-4963433.jpeg",
+        focusPoints: [
+          "Skill-based training",
+          "Entrepreneurship support",
+          "Employment generation",
+        ],
+      },
+    ],
+  },
 };
 
 export default en;
+

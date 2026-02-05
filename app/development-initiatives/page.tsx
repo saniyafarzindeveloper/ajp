@@ -1,82 +1,65 @@
-import CTA from "@/components/layout/CTA";
-import Image from "next/image";
+"use client";
 
-const initiatives = [
-  {
-    title: "Women Empowerment",
-    desc: "Ensuring equal opportunities, economic independence, and leadership roles for women across all sectors of society.",
-    color: "orange",
-    image:
-      "https://images.pexels.com/photos/35605404/pexels-photo-35605404.jpeg",
-  },
-  {
-    title: "Accessible Healthcare",
-    desc: "Quality and affordable healthcare for every citizen through strengthened public health infrastructure and preventive care.",
-    color: "green",
-    image: "https://images.pexels.com/photos/236380/pexels-photo-236380.jpeg",
-  },
-  {
-    title: "Education for All",
-    desc: "Universal access to quality education, from early childhood to higher education, regardless of socio-economic background.",
-    color: "yellow",
-    image: "https://images.pexels.com/photos/764681/pexels-photo-764681.jpeg",
-  },
-  {
-    title: "Strict Laws for Women’s Safety",
-    desc: "Zero tolerance for crimes against women through fast-track courts, strict enforcement, and victim support systems.",
-    color: "orange",
-    image: "https://images.pexels.com/photos/6077326/pexels-photo-6077326.jpeg",
-  },
-  {
-    title: "Women Regiment in the Indian Army",
-    desc: "Formation of dedicated women regiments to promote gender equality, national pride, and leadership in defense services.",
-    color: "green",
-    image:
-      "https://images.pexels.com/photos/13316131/pexels-photo-13316131.jpeg",
-  },
-  {
-    title: "Jobs & Skill Development for Youth",
-    desc: "Large-scale skill training, entrepreneurship support, and employment generation to unlock India’s demographic dividend.",
-    color: "yellow",
-    image: "https://images.pexels.com/photos/4963433/pexels-photo-4963433.jpeg",
-  },
-];
+import Image from "next/image";
+import CTA from "@/components/layout/CTA";
+import { useLanguage } from "@/lib/language-provider";
+import { CheckCircle2 } from "lucide-react";
 
 export default function DevelopmentInitiativesPage() {
+  const { t } = useLanguage();
+  const { developmentInitiatives } = t;
+
   return (
     <main className="bg-white overflow-hidden">
       {/* HERO */}
-      <section className="relative">
-        <div className="absolute inset-0 bg-linear-to-br from-orange-500 via-yellow-400 to-green-500" />
-        <div className="relative max-w-7xl mx-auto px-6 py-28 text-white">
-          <h1 className="text-5xl md:text-6xl font-extrabold max-w-4xl">
-            Development Initiatives
-          </h1>
-          <p className="mt-8 max-w-2xl text-lg text-white/90">
-            Aam Janta Party India is committed to inclusive development that
-            empowers women, strengthens youth, and builds a resilient nation.
-          </p>
+      <section className="relative bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 py-18 grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left */}
+          <div>
+            <h1 className="mt-6 text-4xl md:text-6xl font-extrabold leading-tight text-[#f5872f]">
+              {developmentInitiatives.hero.title}
+            </h1>
+
+            <p className="mt-8 text-lg text-gray-600 max-w-xl">
+              {developmentInitiatives.hero.description}
+            </p>
+          </div>
+
+          {/* Right visual block */}
+          <div className="relative h-80 rounded-3xl bg-linear-to-br from-orange-500 via-yellow-400 to-green-500 p-0.75">
+            <div className="relative h-full w-full rounded-[22px] overflow-hidden bg-white">
+              <Image
+                src="/images/img4.JPG"
+                alt="development discussion"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </div>
         </div>
       </section>
 
       {/* INTRO */}
-      <section className="max-w-7xl mx-auto px-6 py-20 text-center">
+      <section className="relative max-w-7xl mx-auto px-6 py-24 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-          Our Roadmap for a Stronger India
+          {developmentInitiatives.intro.title}
         </h2>
+
+        <div className="mx-auto mt-4 h-1 w-24 rounded-full bg-linear-to-r from-orange-500 via-yellow-400 to-green-500" />
+
         <p className="mt-6 max-w-3xl mx-auto text-gray-600 text-lg">
-          Our development agenda focuses on people-centric policies that create
-          opportunity, ensure safety, and promote national progress.
+          {developmentInitiatives.intro.description}
         </p>
       </section>
 
       {/* INITIATIVES */}
-      <section className="max-w-7xl mx-auto px-6 pb-28">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {initiatives.map((item, i) => (
+      <section className="relative max-w-7xl mx-auto px-6 pb-32">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 cursor-pointer">
+          {developmentInitiatives.initiatives.map((item, i) => (
             <div
               key={i}
-              className="group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl transition overflow-hidden"
+              className="group relative rounded-3xl bg-white border border-gray-200 shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden"
             >
               {/* Image */}
               <div className="relative h-56 overflow-hidden">
@@ -84,17 +67,20 @@ export default function DevelopmentInitiativesPage() {
                   src={item.image}
                   alt={item.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition duration-500"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
 
-                {/* Color badge */}
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
+
+                {/* Badge */}
                 <span
-                  className={`absolute top-4 left-4 px-3 py-1 text-xs font-semibold text-white rounded-full ${
+                  className={`absolute top-4 left-4 rounded-full px-3 py-1 text-xs font-semibold shadow ${
                     item.color === "orange"
-                      ? "bg-orange-500"
+                      ? "bg-orange-500 text-white"
                       : item.color === "green"
-                      ? "bg-green-500"
-                      : "bg-yellow-400 text-gray-900"
+                        ? "bg-green-500 text-white"
+                        : "bg-yellow-400 text-gray-900"
                   }`}
                 >
                   Initiative
@@ -102,7 +88,18 @@ export default function DevelopmentInitiativesPage() {
               </div>
 
               {/* Content */}
-              <div className="p-6 flex flex-col h-full">
+              <div className="relative p-6 flex flex-col h-full">
+                {/* Accent line */}
+                <div
+                  className={`mb-4 h-1 w-16 rounded-full ${
+                    item.color === "orange"
+                      ? "bg-orange-500"
+                      : item.color === "green"
+                        ? "bg-green-500"
+                        : "bg-yellow-400"
+                  }`}
+                />
+
                 <h3 className="text-xl font-bold text-gray-900">
                   {item.title}
                 </h3>
@@ -111,28 +108,29 @@ export default function DevelopmentInitiativesPage() {
                   {item.desc}
                 </p>
 
-                {/* Divider */}
-                <div
-                  className={`mt-6 h-1 w-16 ${
-                    item.color === "orange"
-                      ? "bg-orange-500"
-                      : item.color === "green"
-                      ? "bg-green-500"
-                      : "bg-yellow-400"
-                  }`}
-                />
-
-                {/* Focus points */}
-                <ul className="mt-6 space-y-2 text-sm text-gray-600">
-                  <li>• Policy-driven implementation</li>
-                  <li>• Measurable impact & accountability</li>
-                  <li>• Nationwide reach</li>
+                {/* Focus Points */}
+                <ul className="mt-6 space-y-3 text-sm text-gray-700">
+                  {item.focusPoints.map((point, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <CheckCircle2
+                        className={`mt-0.5 h-4 w-4 ${
+                          item.color === "orange"
+                            ? "text-orange-500"
+                            : item.color === "green"
+                              ? "text-green-500"
+                              : "text-yellow-500"
+                        }`}
+                      />
+                      <span>{point}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
           ))}
         </div>
       </section>
+
       <CTA />
     </main>
   );
