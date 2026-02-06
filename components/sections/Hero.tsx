@@ -8,7 +8,7 @@ export default function Hero() {
   const { t } = useLanguage();
 
   return (
-    <section className="relative bg-white overflow-hidden">
+    <section className="relative  bg-linear-to-r from-orange-100 via-yellow-50 to-green-100 overflow-hidden">
       {/* Subtle tricolor accent */}
       <div className="absolute inset-x-0 top-0 h-1 bg-linear-to-r from-orange-500 via-yellow-400 to-green-500" />
 
@@ -48,7 +48,7 @@ export default function Hero() {
 
               <Link
                 href="#vision"
-                className="inline-flex items-center justify-center rounded-xl border border-gray-300 px-8 py-4 text-sm font-medium text-gray-900 hover:border-green-500 transition"
+                className="inline-flex items-center justify-center rounded-xl border border-green-500 px-8 py-4 text-sm font-medium text-gray-900 hover:border-green-700 transition"
               >
                 {t.hero.ctaVision}
               </Link>

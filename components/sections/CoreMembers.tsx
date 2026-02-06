@@ -9,7 +9,7 @@ export default function CoreMembers() {
   const coreMembers = t.coreMembers;
 
   return (
-    <section className="bg-[#f9fafb]" id="core-members">
+    <section className="bg-[#fafafa]" id="core-members">
       <div className="max-w-7xl mx-auto px-4 py-20">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center">
