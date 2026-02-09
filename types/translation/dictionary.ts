@@ -10,6 +10,7 @@ import { ContactTranslations } from "./contact";
 import { EventsTranslations } from "./event";
 import { FooterTranslations } from "./footer";
 import { DevelopmentInitiativesTranslations } from "./development-initiatives";
+import { JoinTranslations } from "./join";
 
 export type Dictionary = {
   nav: NavTranslations;
@@ -23,4 +24,5 @@ export type Dictionary = {
   events: EventsTranslations;
   footer: FooterTranslations;
   developmentInitiatives: DevelopmentInitiativesTranslations;
+  join: JoinTranslations
 };

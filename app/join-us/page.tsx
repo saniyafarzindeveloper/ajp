@@ -1,9 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { useLanguage } from "@/lib/language-provider";
 
 export default function JoinPage() {
   const [role, setRole] = useState("member");
+  const { t } = useLanguage();
+  const { join } = t;
 
   return (
     <div className="min-h-screen bg-linear-to-br from-orange-50 via-yellow-50 to-green-50">
@@ -12,11 +15,10 @@ export default function JoinPage() {
         <div className="absolute inset-0 bg-linear-to-r from-orange-500 via-yellow-400 to-green-500 opacity-90" />
         <div className="relative max-w-6xl mx-auto px-4 py-14 text-white">
           <h1 className="text-3xl md:text-4xl font-extrabold">
-            Join the Movement
+            {join.hero.title}
           </h1>
           <p className="mt-4 max-w-2xl text-white/90">
-            Be a part of a people-first political movement working towards
-            transparent governance and inclusive growth across India.
+            {join.hero.description}
           </p>
         </div>
       </section>
@@ -33,9 +35,21 @@ export default function JoinPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-5">
               {[
-                { id: "member", label: "Party Member", color: "orange" },
-                { id: "volunteer", label: "Volunteer", color: "green" },
-                { id: "youth", label: "Youth Wing", color: "yellow" },
+                {
+                  id: "member",
+                  label: join.contribution.member,
+                  color: "orange",
+                },
+                {
+                  id: "volunteer",
+                  label: join.contribution.volunteer,
+                  color: "green",
+                },
+                {
+                  id: "youth",
+                  label: join.contribution.youth,
+                  color: "yellow",
+                },
               ].map((item) => (
                 <button
                   key={item.id}
@@ -47,8 +61,8 @@ export default function JoinPage() {
                         ? item.color === "orange"
                           ? "border-orange-500 bg-orange-50 text-orange-700"
                           : item.color === "green"
-                          ? "border-green-500 bg-green-50 text-green-700"
-                          : "border-yellow-400 bg-yellow-50 text-yellow-800"
+                            ? "border-green-500 bg-green-50 text-green-700"
+                            : "border-yellow-400 bg-yellow-50 text-yellow-800"
                         : "border-gray-300 bg-white hover:border-gray-400"
                     }`}
                 >
@@ -65,7 +79,6 @@ export default function JoinPage() {
             )}
           </div>
 
-        
           {/* Personal Details */}
           <div className="mt-12">
             <h2 className="text-xl font-semibold text-gray-900">

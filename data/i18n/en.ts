@@ -392,6 +392,56 @@ developmentInitiatives: {
       },
     ],
   },
+  join: {
+  hero: {
+    title: "Join the Movement",
+    description:
+      "Be a part of a people-first political movement working towards transparent governance and inclusive growth across India.",
+  },
+
+  contribution: {
+    title: "How would you like to contribute?",
+    member: "Party Member",
+    volunteer: "Volunteer",
+    youth: "Youth Wing",
+    feeNotice: "One-time membership fee of ₹1,500/- is applicable.",
+  },
+
+  personal: {
+    title: "Personal Details",
+    fullName: "Full Name",
+    mobile: "Mobile Number",
+    email: "Email (optional)",
+    state: "State",
+    city: "City",
+    aadhaar: "Aadhaar Number",
+    contributionText: "How would you like to contribute?",
+  },
+
+  upload: {
+    label: "Upload Photograph",
+    hint: "Upload a recent passport-size photograph",
+    format: "JPG or PNG, max 2MB",
+  },
+
+  declaration:
+    "I confirm that I am an Indian citizen and agree to be contacted for party-related communication.",
+
+  cta: "Join Now",
+
+  sidebar: {
+    title: "Why Join Us?",
+    points: [
+      "Be part of grassroots change",
+      "Work directly with local leadership",
+      "Contribute to policy & outreach",
+      "Represent your community",
+    ],
+    footer:
+      "Your information will be kept confidential and used only for organisational communication.",
+  },
+},
+
 };
 
 export default en;
