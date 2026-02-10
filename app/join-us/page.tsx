@@ -73,8 +73,7 @@ export default function JoinPage() {
 
             {role === "member" && (
               <div className="mt-4 rounded-xl border border-orange-300 bg-orange-50 px-4 py-3 text-sm text-gray-700">
-                One-time membership fee of <strong>₹1,500/-</strong> is
-                applicable.
+                {join.contribution.feeNotice}
               </div>
             )}
           </div>
@@ -88,37 +87,37 @@ export default function JoinPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
               <input
                 type="text"
-                placeholder="Full Name"
+                placeholder={join.personal.fullName}
                 className="rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-green-400 outline-none"
               />
 
               <input
                 type="tel"
-                placeholder="Mobile Number"
+                placeholder={join.personal.mobile}
                 className="rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-green-400 outline-none"
               />
 
               <input
                 type="email"
-                placeholder="Email (optional)"
+                placeholder={join.personal.email}
                 className="rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-green-400 outline-none"
               />
 
               <input
                 type="text"
-                placeholder="State"
+                placeholder={join.personal.state}
                 className="rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-green-400 outline-none"
               />
 
               <input
                 type="text"
-                placeholder="City"
+                placeholder={join.personal.city}
                 className="rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-green-400 outline-none"
               />
 
               <input
                 type="text"
-                placeholder="Aadhaar Number"
+                placeholder={join.personal.aadhaar}
                 maxLength={12}
                 className="rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-orange-400 outline-none"
               />
@@ -127,16 +126,14 @@ export default function JoinPage() {
             {/* Photograph Upload */}
             <div className="mt-5">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Upload Photograph
+                {join.upload.label}
               </label>
 
               <div className="flex items-center justify-center rounded-xl border-2 border-dashed border-gray-300 bg-gray-50 px-6 py-8 text-center">
                 <div>
-                  <p className="text-sm text-gray-600">
-                    Upload a recent passport-size photograph
-                  </p>
+                  <p className="text-sm text-gray-600">{join.upload.hint}</p>
                   <p className="mt-1 text-xs text-gray-500">
-                    JPG or PNG, max 2MB
+                    {join.upload.format}
                   </p>
 
                   <input
@@ -167,10 +164,7 @@ export default function JoinPage() {
           <div className="mt-8">
             <label className="flex items-start gap-3 text-sm text-gray-700">
               <input type="checkbox" className="mt-1 accent-green-600" />
-              <span>
-                I confirm that I am an Indian citizen and agree to be contacted
-                for party-related communication.
-              </span>
+              <span>{join.declaration}</span>
             </label>
           </div>
 
@@ -179,24 +173,24 @@ export default function JoinPage() {
             type="button"
             className="mt-10 w-full rounded-lg cursor-pointer border-2 border-orange-500 bg-white py-4 text-sm font-semibold text-orange-600 transition "
           >
-            Join Now
+            {join.cta}
           </button>
         </div>
 
         {/* Sidebar */}
         <aside className="bg-white rounded-3xl shadow-lg p-6 md:p-8 h-fit border-t-4 border-green-500">
-          <h3 className="text-lg font-semibold text-gray-900">Why Join Us?</h3>
+          <h3 className="text-lg font-semibold text-gray-900">
+            {join.sidebar.title}
+          </h3>
 
           <ul className="mt-5 space-y-3 text-sm text-gray-700">
-            <li>• Be part of grassroots change</li>
-            <li>• Work directly with local leadership</li>
-            <li>• Contribute to policy & outreach</li>
-            <li>• Represent your community</li>
+            {join.sidebar.points.map((p) => (
+              <li key={p}>• {p}</li>
+            ))}
           </ul>
 
           <div className="mt-6 border-t pt-4 text-xs text-gray-500">
-            Your information will be kept confidential and used only for
-            organisational communication.
+            {join.sidebar.footer}
           </div>
         </aside>
       </section>
